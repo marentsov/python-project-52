@@ -30,7 +30,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 #DEBUG = os.getenv('DEBUG', 'False') == True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'webserver',
+    'localhost',
+    '127.0.0.1',
+    'https://python-project-52-hiri.onrender.com',
+]
 
 
 # Application definition
