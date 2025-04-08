@@ -3,7 +3,7 @@ dev:
 build:
 		./build.sh
 render-start:
-		gunicorn task_manager.wsgi
+		uv run gunicorn task_manager.wsgi
 lint:
 		uv run ruff check
 lint-fix:
@@ -11,6 +11,6 @@ lint-fix:
 install:
 		uv sync
 collectstatic:
-		manage.py collectstatic --no-input
+		uv run manage.py collectstatic --no-input
 migrate:
-		manage.py migrate
+		uv run manage.py migrate
