@@ -11,6 +11,6 @@ lint-fix:
 install:
 		uv sync
 collectstatic:
-		uv run manage.py collectstatic --no-input
+		manage.py collectstatic --no-input
 migrate:
-		uv run manage.py migrate
+		manage.py migrate
