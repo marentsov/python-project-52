@@ -91,7 +91,6 @@ dependencies = [
     { name = "psycopg2-binary" },
     { name = "python-dotenv" },
     { name = "ruff" },
-    { name = "ub" },
     { name = "uv" },
     { name = "uvicorn" },
     { name = "whitenoise" },
@@ -105,7 +104,6 @@ requires-dist = [
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "ruff", specifier = ">=0.11.4" },
-    { name = "ub", specifier = ">=0.0.4" },
     { name = "uv", specifier = ">=0.6.13" },
     { name = "uvicorn", specifier = ">=0.34.0" },
     { name = "whitenoise", specifier = ">=6.9.0" },
@@ -222,15 +220,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/95/32/1a225d6164441be760d75c2c42e2780dc0873fe382da3e98a2e1e48361e5/tzdata-2025.2.tar.gz", hash = "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9", size = 196380 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/5c/23/c7abc0ca0a1526a0774eca151daeb8de62ec457e77262b66b359c3c7679e/tzdata-2025.2-py2.py3-none-any.whl", hash = "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8", size = 347839 },
-]
-
-[[package]]
-name = "ub"
-version = "0.0.4"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/9d/cf/2f44db086f0cc47e6c77642a076d7bb572b1641eed848576e39e7ceeaf9a/ub-0.0.4.tar.gz", hash = "sha256:8bc7de8caedbb537d1fe2d8d2686873616dfcf3b5c4dc3adb2a67aeb36c1c07e", size = 9415 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/13/e0/9d887a8747713502a62692057e4608f10db603c24474ca174f792fe9d88f/ub-0.0.4-py3-none-any.whl", hash = "sha256:2a8deba16763f5d90063ce812f2434d2f69f7b20f293aef3468592cfdfb5b5aa", size = 6678 },
 ]
 
 [[package]]
