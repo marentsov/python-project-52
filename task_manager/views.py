@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.views.generic import TemplateView
+from django.utils.translation import gettext as _
 
 
 class IndexView(TemplateView):
@@ -8,7 +9,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'главная Task manager'
+        context['title'] = _('main Task-manager')
+        context['hello'] = _('Hello from Task-manager')
         return context
 
 # def index(request):
