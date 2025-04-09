@@ -1,0 +1,33 @@
+{% load django_bootstrap5 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+
+<!--header -->
+<body>
+
+
+  <div class="container-fluid">
+    <header class="d-flex justify-content-left py-3 bg-light">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Task manager</a></li>
+        <li class="nav-item"><a href="#" class="nav-link ms-3 ">Вход</a></li>
+        <li class="nav-item"><a href="#" class="nav-link ms-3">Регистрация</a></li>
+        <li class="nav-item"><a href="#" class="nav-link ms-3">Пользователи</a></li>
+      </ul>
+    </header>
+  </div>
+<!--конец header-->
+
+<!--контент на странице-->
+  <div class="container-fluid">
+{% block content %}
+
+{% endblock %}
+  </div>
+<!--конец контента на странице-->
+</body>
+
+<!--<nav class="navbar navbar-expand-md navbar-dark px-3" style="background-color: #2F4F4F;" >-->
