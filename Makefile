@@ -14,3 +14,5 @@ collectstatic:
 		uv run manage.py collectstatic --no-input
 migrate:
 		uv run manage.py migrate
+compilemessages:
+		uv run manage.py compilemessages

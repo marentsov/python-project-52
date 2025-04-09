@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.utils.translation import activate
+
+
 
 load_dotenv()
 
@@ -234,3 +237,5 @@ BOOTSTRAP5 = {
         'default': 'django_bootstrap5.renderers.FieldRenderer',
     },
 }
+
+
