@@ -13,8 +13,8 @@
   <div class="container-fluid">
     <header class="d-flex justify-content-left py-3 bg-light">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">{% trans "Task manager" %}</a></li>
-        <li class="nav-item"><a href="#" class="nav-link ms-3 ">{% trans "Sign in" %}</a></li>
+        <li class="nav-item"><a href="{% url "index" %}" class="nav-link active" aria-current="page">{% trans "Task manager" %}</a></li>
+        <li class="nav-item"><a href="{% url "login" %}" class="nav-link ms-3 ">{% trans "Log in" %}</a></li>
         <li class="nav-item"><a href="#" class="nav-link ms-3">{% trans "Sign up" %}</a></li>
         <li class="nav-item"><a href="#" class="nav-link ms-3">{% trans "Users" %}</a></li>
       </ul>

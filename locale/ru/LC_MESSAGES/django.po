@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-09 11:29+0300\n"
+"POT-Creation-Date: 2025-04-10 14:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,3 +45,29 @@ msgstr "главная Менеджер-задач"
 #: task_manager/views.py:13
 msgid "Hello from Task-manager"
 msgstr "Привет от Менеджера-задач"
+
+#: users/forms.py:14
+msgid "Enter your login"
+msgstr "Введите имя пользователя"
+
+#: users/forms.py:19
+msgid "Enter your password"
+msgstr "Введите свой пароль"
+
+#: users/templates/login.html:8
+msgid "Login"
+msgstr "Вход"
+
+#: users/templates/login.html:21
+msgid "Enter"
+msgstr "Войти"
+
+#: users/views.py:18
+#, fuzzy
+#| msgid "main Task-manager"
+msgid "Task manager - authorization"
+msgstr "Менеджер-задач - авторизация"
+
+#: users/views.py:22
+msgid "You are logged in to your account"
+msgstr "Вы успешно вошли в аккаунт"

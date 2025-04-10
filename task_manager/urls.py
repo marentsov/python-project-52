@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path
 
 from task_manager.views import IndexView
+from users.views import UserLoginView, logout
+
+app_name = 'main'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index')
+    path('', IndexView.as_view(), name='index'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', logout, name='logout'),
 ]

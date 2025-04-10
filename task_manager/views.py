@@ -13,6 +13,7 @@ class IndexView(TemplateView):
         context['hello'] = _('Hello from Task-manager')
         return context
 
+
 # def index(request):
 #     return render(
 #         request,

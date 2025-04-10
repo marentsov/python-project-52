@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from django.utils.translation import activate
+
 
 
 
@@ -50,10 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
 
     'django_bootstrap5',
 
     'task_manager',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -237,5 +239,9 @@ BOOTSTRAP5 = {
         'default': 'django_bootstrap5.renderers.FieldRenderer',
     },
 }
+
+AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 
 
