@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-10 14:47+0300\n"
+"POT-Creation-Date: 2025-04-11 09:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,54 +20,129 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/templates/base.html:16
+#: task_manager/templates/base.html:16 task_manager/templates/index.html:11
 #, fuzzy
 #| msgid "main Task-manager"
 msgid "Task manager"
 msgstr "главная Менеджер-задач"
 
-#: task_manager/templates/base.html:17
-msgid "Sign in"
+#: task_manager/templates/base.html:18
+msgid "Log in"
 msgstr "Войти"
 
-#: task_manager/templates/base.html:18
+#: task_manager/templates/base.html:19
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/templates/base.html:19
+#: task_manager/templates/base.html:20 task_manager/templates/base.html:23
 msgid "Users"
 msgstr "Пользователи"
 
+#: task_manager/templates/base.html:22
+msgid "Profile"
+msgstr "Профиль"
+
+#: task_manager/templates/base.html:24
+msgid "Log out"
+msgstr "Выйти"
+
+#: task_manager/templates/index.html:12
+msgid ""
+"Task Manager is a task management system. It allows you to set tasks, assign "
+"performers, and change their statuses. Registration and authentication are "
+"required to work with the system."
+msgstr ""
+"Менеджер задач – система управления задачами. Она позволяет ставить задачи, "
+"назначать исполнителей и менять их статусы. Для работы с системой требуется "
+"регистрация и аутентификация."
+
 #: task_manager/views.py:12
-msgid "main Task-manager"
-msgstr "главная Менеджер-задач"
+#, fuzzy
+#| msgid "main Task-manager"
+msgid "Task manager - main"
+msgstr "Менеджер задач - главная"
 
-#: task_manager/views.py:13
-msgid "Hello from Task-manager"
-msgstr "Привет от Менеджера-задач"
-
-#: users/forms.py:14
+#: users/forms.py:14 users/forms.py:52
 msgid "Enter your login"
 msgstr "Введите имя пользователя"
 
-#: users/forms.py:19
+#: users/forms.py:19 users/forms.py:57
 msgid "Enter your password"
 msgstr "Введите свой пароль"
 
-#: users/templates/login.html:8
+#: users/forms.py:40
+#, fuzzy
+#| msgid "Enter your login"
+msgid "Enter your first name"
+msgstr "Введите имя пользователя"
+
+#: users/forms.py:45
+#, fuzzy
+#| msgid "Enter your login"
+msgid "Enter your last name"
+msgstr "Введите имя пользователя"
+
+#: users/forms.py:64
+#, fuzzy
+#| msgid "Enter your password"
+msgid "Repeat your password"
+msgstr "Введите свой пароль"
+
+#: users/templates/users/create.html:8
+msgid "Registration"
+msgstr "Регистрация"
+
+#: users/templates/users/create.html:22
+msgid ""
+"* Required field. No more than 150 characters. Only letters, numbers, and "
+"symbols @/./+/-/_."
+msgstr "* Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+
+#: users/templates/users/create.html:27
+msgid "* Your password must contain at least 3 characters."
+msgstr "* Ваш пароль должен содержать как минимум 3 символа."
+
+#: users/templates/users/create.html:32
+msgid "* Please repeat the password again"
+msgstr "* Пожалуйста, повторите свой пароль"
+
+#: users/templates/users/create.html:35
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: users/templates/users/login.html:8
 msgid "Login"
 msgstr "Вход"
 
-#: users/templates/login.html:21
+#: users/templates/users/login.html:21
 msgid "Enter"
 msgstr "Войти"
 
-#: users/views.py:18
+#: users/views.py:21
 #, fuzzy
 #| msgid "main Task-manager"
 msgid "Task manager - authorization"
-msgstr "Менеджер-задач - авторизация"
+msgstr "Менеджер задач - авторизация"
 
-#: users/views.py:22
+#: users/views.py:25
 msgid "You are logged in to your account"
 msgstr "Вы успешно вошли в аккаунт"
+
+#: users/views.py:37
+msgid "You have successfully registered!"
+msgstr "Вы успешно зарегистрировались!"
+
+#: users/views.py:41
+#, fuzzy
+#| msgid "main Task-manager"
+msgid "Task manager - registration"
+msgstr "Менеджер задач - авторизация"
+
+#~ msgid "Sign in"
+#~ msgstr "Войти"
+
+#~ msgid "main Task-manager"
+#~ msgstr "главная Менеджер-задач"
+
+#~ msgid "Hello from Task-manager"
+#~ msgstr "Привет от Менеджера-задач"

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.utils.translation import gettext as _
 
 from users.models import User
@@ -21,3 +21,63 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+
+class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = (
+            "first_name",
+            "last_name",
+            "username",
+            "password1",
+            "password2",
+        )
+
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Enter your first name')})
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Enter your last name')})
+    )
+    username = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={
+            ''
+            'class': 'form-control',
+            'placeholder': _('Enter your login')}))
+    password1 = forms.CharField(
+        required=True,
+        widget=forms.PasswordInput(attrs={
+            'class': "form-control",
+            'placeholder': _('Enter your password')})
+    )
+    password2 = forms.CharField(
+        required=True,
+        widget=forms.PasswordInput(attrs={
+            "autocomplete": "current-password",
+            'class': "form-control",
+            'placeholder': _('Repeat your password')})
+    )
+
+
+class UserUpdateForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = (
+            "first_name",
+            "last_name",
+            "username",
+            "password1",
+            "password2",
+        )
+
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    username = forms.CharField()
+    password1 = forms.CharField()
+    password2 = forms.CharField()
