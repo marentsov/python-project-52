@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-11 13:13+0300\n"
+"POT-Creation-Date: 2025-04-14 15:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,28 +20,102 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: statuses/forms.py:15 statuses/forms.py:27
+#: statuses/templates/statuses/create.html:12
+#: statuses/templates/statuses/statuses.html:16
+#: statuses/templates/statuses/update.html:12
+#: users/templates/users/create.html:13 users/templates/users/update.html:13
+msgid "Name"
+msgstr "Имя"
+
+#: statuses/templates/statuses/create.html:8
+#: statuses/templates/statuses/statuses.html:10
+msgid "Create status"
+msgstr "Создать статус"
+
+#: statuses/templates/statuses/create.html:16
+msgid "Create"
+msgstr "Создать"
+
+#: statuses/templates/statuses/delete.html:8
+msgid "Delete status"
+msgstr "Удалить статус"
+
+#: statuses/templates/statuses/delete.html:9
+msgid "Are you sure, you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: statuses/templates/statuses/delete.html:13
+#: statuses/templates/statuses/statuses.html:29
+#: users/templates/users/users.html:28
+msgid "Delete"
+msgstr "Удалить"
+
+#: statuses/templates/statuses/statuses.html:8
+#: task_manager/templates/base.html:18 task_manager/templates/base.html:23
+msgid "Statuses"
+msgstr "Статусы"
+
+#: statuses/templates/statuses/statuses.html:17
+#: users/templates/users/users.html:15
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: statuses/templates/statuses/statuses.html:28
+#: users/templates/users/users.html:27
+msgid "Change"
+msgstr "Изменить"
+
+#: statuses/templates/statuses/update.html:8
+msgid "Update status info"
+msgstr "Обновление данных статуса"
+
+#: statuses/templates/statuses/update.html:16
+msgid "Update"
+msgstr "Обновить данные"
+
+#: statuses/views.py:25
+msgid "The status was created successfully"
+msgstr "Статус успешно создан"
+
+#: statuses/views.py:30
+msgid "Task manager - create status"
+msgstr "Менеджер задач - регистрация"
+
+#: statuses/views.py:42
+msgid "Status successfully updated"
+msgstr "Статус успешно обновлен"
+
+#: statuses/views.py:47
+msgid "Task manager - update status info"
+msgstr "Менеджер задач - обновление статуса"
+
+#: statuses/views.py:57
+msgid "Status successfully deleted"
+msgstr "Статус успешно удален"
+
 #: task_manager/templates/base.html:16 task_manager/templates/index.html:11
 msgid "Task manager"
 msgstr ""
 
-#: task_manager/templates/base.html:18
-msgid "Sign up"
-msgstr "Регистрация"
-
-#: task_manager/templates/base.html:19 task_manager/templates/base.html:23
+#: task_manager/templates/base.html:19 task_manager/templates/base.html:24
 #: users/templates/users/users.html:8
 msgid "Users"
 msgstr "Пользователи"
 
 #: task_manager/templates/base.html:20
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: task_manager/templates/base.html:21
 msgid "Log in"
 msgstr "Войти"
 
-#: task_manager/templates/base.html:22
+#: task_manager/templates/base.html:25
 msgid "Profile"
 msgstr "Профиль"
 
-#: task_manager/templates/base.html:24
+#: task_manager/templates/base.html:26
 msgid "Log out"
 msgstr "Выйти"
 
@@ -83,10 +157,6 @@ msgstr "Повторите пароль"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: users/templates/users/create.html:13 users/templates/users/update.html:13
-msgid "Name"
-msgstr "Имя"
-
 #: users/templates/users/create.html:18 users/templates/users/update.html:18
 msgid "Surname"
 msgstr "Фамилия"
@@ -123,6 +193,14 @@ msgstr "* Пожалуйста повторите пароль"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
+#: users/templates/users/delete.html:8 users/templates/users/delete.html:13
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: users/templates/users/delete.html:11
+msgid "Are you sure you want delete"
+msgstr "Вы уверены, что хотите удалить"
+
 #: users/templates/users/login.html:8
 msgid "Login"
 msgstr "Войти"
@@ -136,8 +214,6 @@ msgid "Update user info"
 msgstr "Обновление пользовательских данных"
 
 #: users/templates/users/update.html:47
-#, fuzzy
-#| msgid "Update user info"
 msgid "Update info"
 msgstr "Обновить данные"
 
@@ -148,10 +224,6 @@ msgstr "Имя пользователя"
 #: users/templates/users/users.html:14
 msgid "Full name"
 msgstr "Полное имя"
-
-#: users/templates/users/users.html:15
-msgid "Creation date"
-msgstr "Дата создания"
 
 #: users/views.py:23
 msgid "Task manager - authorization"
@@ -170,17 +242,22 @@ msgid "Task manager - registration"
 msgstr "Менеджер задач - регистрация"
 
 #: users/views.py:55
-msgid "Личная информация обновлена"
-msgstr ""
+msgid "User info was updated"
+msgstr "Информация о пользователе обновлена"
 
 #: users/views.py:60
-msgid "Ошибка обновления личной информации"
-msgstr ""
+msgid "User info update error."
+msgstr "Ошибка обновления информации"
 
 #: users/views.py:66
 msgid "Task manager - update user info"
 msgstr "Менеджер задач - обновление пользовательской информации"
 
-#: users/views.py:78
-msgid "Вы успешно вышли из аккаунта"
-msgstr ""
+#: users/views.py:74
+msgid "User successfully deleted"
+msgstr "Пользователь успешно удален"
+
+#: users/views.py:87
+
+msgid "You have successfully logged out of your account"
+msgstr "Вы успешно вышли из аккаунта"

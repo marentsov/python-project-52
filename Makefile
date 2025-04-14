@@ -14,5 +14,7 @@ collectstatic:
 		uv run manage.py collectstatic --no-input
 migrate:
 		uv run manage.py migrate
+makemessages:
+		django-admin makemessages --ignore="static" --ignore=".env"  -l ru
 compilemessages:
 		uv run manage.py compilemessages

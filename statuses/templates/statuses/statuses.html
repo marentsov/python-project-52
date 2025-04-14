@@ -5,28 +5,29 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="custom-form-container col-12 col-lg-10 p-4">
-            <h1 class="my-4">{% trans "Users" %}</h1>
+            <h1 class="my-4">{% trans "Statuses" %}</h1>
+            <div class="d-grid">
+                    <a class="btn btn-primary w-25 mb-3" href="{% url "statuses:create" %}">{% trans "Create status" %}</a>
+                </div>
                 <table class="table table-striped table-hover table-bordered rounded-pill">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>{% trans "Username" %}</th>
-                        <th>{% trans "Full name" %}</th>
+                        <th>{% trans "Name" %}</th>
                         <th>{% trans "Creation date" %}</th>
                         <th> </th>
                     </tr>
                     </thead>
-                    {% for user in users %}
+                    {% for status in statuses %}
                     <tbody>
                     <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.first_name }} {{ user.last_name }}</td>
-                        <td>{{ user.date_joined }}</td>
+                        <td>{{ status.id }}</td>
+                        <td>{{ status.name }}</td>
+                        <td>{{ status.created_at }}</td>
                         <td>
-                            <a href="{% url "users:update" user.id %}">{% trans "Change" %}</a>
+                            <a href="{% url "statuses:update" status.id %}">{% trans "Change" %}</a>
                             <br>
-                            <a href="{% url "users:delete" user.id %}">{% trans "Delete" %}</a>
+                            <a href="{% url "statuses:delete" status.id %}">{% trans "Delete" %}</a>
                         </td>
                     </tr>
                     </tbody>

@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext as _
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 
 from users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
@@ -52,12 +52,12 @@ class UserUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return self.request.user
 
     def form_valid(self, form):
-        message = _('Личная информация обновлена')
+        message = _('User info was updated')
         messages.success(self.request, message)
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        message = _('Ошибка обновления личной информации')
+        message = _('User info update error.')
         messages.error(self.request, message)
         return super().form_invalid(form)
 
@@ -65,6 +65,15 @@ class UserUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - update user info')
         return context
+
+class UserDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+
+    model = User
+    success_url = reverse_lazy('index')
+    template_name = 'users/delete.html'
+    success_message = _('User successfully deleted')
+
+
 
 class UserListView(ListView):
     template_name = 'users/users.html'
@@ -75,7 +84,7 @@ class UserListView(ListView):
 
 @login_required
 def logout(request):
-    message = _('Вы успешно вышли из аккаунта')
+    message = _('You have successfully logged out of your account')
     messages.success(request, f"{request.user.username}, {message}")
     auth.logout(request)
     return redirect(reverse('index'))

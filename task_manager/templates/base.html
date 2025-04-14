@@ -15,12 +15,14 @@
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="{% url "index" %}" class="nav-link active" aria-current="page">{% trans "Task manager" %}</a></li>
         {% if not user.is_authenticated %}
-        <li class="nav-item"><a href="{% url "users:create" %}" class="nav-link ms-3">{% trans "Sign up" %}</a></li>
+        <li class="nav-item"><a href="{% url "statuses:statuses" %}" class="nav-link ms-3">{% trans "Statuses" %}</a></li>
         <li class="nav-item"><a href="{% url "users:users" %}" class="nav-link ms-3">{% trans "Users" %}</a></li>
+        <li class="nav-item"><a href="{% url "users:create" %}" class="nav-link ms-3">{% trans "Sign up" %}</a></li>
         <li class="nav-item"><a href="{% url "login" %}" class="nav-link ms-3 ">{% trans "Log in" %}</a></li>
         {% else %}
-        <li class="nav-item"><a href="{% url "users:update" user.id %}" class="nav-link ms-3">{% trans "Profile" %}</a></li>
+        <li class="nav-item"><a href="{% url "statuses:statuses" %}" class="nav-link ms-3">{% trans "Statuses" %}</a></li>
         <li class="nav-item"><a href="{% url "users:users" %}" class="nav-link ms-3">{% trans "Users" %}</a></li>
+        <li class="nav-item"><a href="{% url "users:update" user.id %}" class="nav-link ms-3">{% trans "Profile" %}</a></li>
         <li class="nav-item"><a href="{% url "users:logout" %}" class="nav-link ms-3">{% trans "Log out" %}</a></li>
         {% endif %}
       </ul>
