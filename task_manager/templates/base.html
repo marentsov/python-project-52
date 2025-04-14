@@ -19,15 +19,15 @@
         <li class="nav-item"><a href="{% url "users:users" %}" class="nav-link ms-3">{% trans "Users" %}</a></li>
         <li class="nav-item"><a href="{% url "login" %}" class="nav-link ms-3 ">{% trans "Log in" %}</a></li>
         {% else %}
-        <li class="nav-item"><a href="#" class="nav-link ms-3">{% trans "Profile" %}</a></li>
+        <li class="nav-item"><a href="{% url "users:update" user.id %}" class="nav-link ms-3">{% trans "Profile" %}</a></li>
         <li class="nav-item"><a href="{% url "users:users" %}" class="nav-link ms-3">{% trans "Users" %}</a></li>
-        <li class="nav-item"><a href="{% url "users:delete" %}" class="nav-link ms-3">{% trans "Log out" %}</a></li>
+        <li class="nav-item"><a href="{% url "users:logout" %}" class="nav-link ms-3">{% trans "Log out" %}</a></li>
         {% endif %}
       </ul>
     </header>
   </div>
 <!--конец header-->
-
+{% include "notifications.html" %}
 <!--контент на странице-->
   <div class="container-fluid">
 {% block content %}

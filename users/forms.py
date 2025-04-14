@@ -47,7 +47,6 @@ class UserRegistrationForm(UserCreationForm):
     username = forms.CharField(
         required=True,
         widget=forms.TextInput(attrs={
-            ''
             'class': 'form-control',
             'placeholder': _('Enter your login')}))
     password1 = forms.CharField(
@@ -76,8 +75,32 @@ class UserUpdateForm(UserChangeForm):
             "password2",
         )
 
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    username = forms.CharField()
-    password1 = forms.CharField()
-    password2 = forms.CharField()
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Enter your first name')})
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Enter your last name')})
+    )
+    username = forms.CharField(
+        # required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': _('Enter your login')}))
+    password1 = forms.CharField(
+        required=False,
+        widget=forms.PasswordInput(attrs={
+            'class': "form-control",
+            'placeholder': _('Enter your password')})
+    )
+    password2 = forms.CharField(
+        # required=Fal
+        required=False,
+        widget=forms.PasswordInput(attrs={
+            "autocomplete": "current-password",
+            'class': "form-control",
+            'placeholder': _('Repeat your password')})
+    )

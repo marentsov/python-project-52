@@ -1,14 +1,15 @@
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext as _
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
 from users.models import User
 
 
@@ -42,6 +43,29 @@ class UserCreateView(SuccessMessageMixin, CreateView):
         context['title'] = _('Task manager - registration')
         return context
 
+class UserUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+    template_name = 'users/update.html'
+    form_class = UserUpdateForm
+    success_url = reverse_lazy('users:users')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        message = _('Личная информация обновлена')
+        messages.success(self.request, message)
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        message = _('Ошибка обновления личной информации')
+        messages.error(self.request, message)
+        return super().form_invalid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Task manager - update user info')
+        return context
+
 class UserListView(ListView):
     template_name = 'users/users.html'
     model = User
@@ -51,7 +75,8 @@ class UserListView(ListView):
 
 @login_required
 def logout(request):
-    messages.success(request, f"{request.user.username}, Вы успешно вышли из аккаунта")
+    message = _('Вы успешно вышли из аккаунта')
+    messages.success(request, f"{request.user.username}, {message}")
     auth.logout(request)
     return redirect(reverse('index'))
 # Create your views here.
