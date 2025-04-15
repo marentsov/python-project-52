@@ -28,7 +28,9 @@
                 <div class="mb-2">
                     <p>{% trans "Labels" %}:
                         {% for label in task.label.all %}
-                        {{ label.name }}
+                        <ul>
+                            <li>{{ label.name }}</li>
+                        </ul>
                         {% endfor %}
                     </p>
                 </div>
