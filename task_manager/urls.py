@@ -29,5 +29,6 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     path('users/', include('users.urls', namespace='users')),
     path('statuses/', include('statuses.urls', namespace='statuses')),
+    path('tasks/', include('tasks.urls', namespace='tasks')),
 
 ]

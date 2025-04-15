@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="custom-form-container col-12 col-lg-10 p-4">
+            <h1 class="mb-3">{% trans "Tasks" %}</h1>
+            <div class="d-grid">
+                    <a class="btn btn-primary w-25 mb-3" href="{% url "tasks:create" %}">{% trans "Create task" %}</a>
+                </div>
+            <form method="get" class="card p-3">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Status" %}</label>
+                    {{ filter_form.status }}
+                </div>
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Executor" %}</label>
+                    {{ filter_form.executor }}
+                </div>
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Only your own tasks" %}</label>
+                    {{ filter_form.my_tasks }}
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">{% trans "Show" %}</button>
+                </div>
+            </form>
+            <table class="table table-striped table-hover table-bordered rounded-pill">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>{% trans "Name" %}</th>
+                        <th>{% trans "Status" %}</th>
+                        <th>{% trans "Author" %}</th>
+                        <th>{% trans "Executor" %}</th>
+                        <th>{% trans "Creation date" %}</th>
+                        <th> </th>
+                    </tr>
+                    </thead>
+                    {% for task in tasks %}
+                    <tbody>
+                    <tr>
+                        <td>{{ task.id }}</td>
+                        <td>
+                            <a href="{% url "tasks:detail" task.id %}">{{ task.title }}</a>
+                        </td>
+                        <td>{{ task.status }}</td>
+                        <td>{{ task.creator.first_name }} {{ task.creator.last_name }}</td>
+                        <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>
+                        <td>{{ task.created_at }}</td>
+                        <td>
+                            <a href="{% url "tasks:update" task.id %}">{% trans "Change" %}</a>
+                            <br>
+                            <a href="{% url "tasks:delete" task.id %}">{% trans "Delete" %}</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

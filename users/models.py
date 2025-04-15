@@ -9,8 +9,8 @@ class User(AbstractUser):
         verbose_name = 'Пользователя'
         verbose_name_plural = 'Пользователи'
 
-        def __str__(self):
-            return self.username
+    def __str__(self):
+        return self.get_full_name()
 
 
 # Create your models here.

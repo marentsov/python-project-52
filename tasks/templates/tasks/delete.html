@@ -5,12 +5,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="custom-form-container col-12 col-lg-10 p-4">
-            <h1 class="mb-3">{% trans "Delete user" %}</h1>
-            <form method="post" class="card bg-light p-3">
+            <h1 class="mb-3">{% trans "Delete task" %}</h1>
+            <p>{% trans "Are you sure, you want to delete task" %} "{{ task.title }}" ?</p>
+            <form method="post" class="card p-3">
                 {% csrf_token %}
-                <p>{% trans "Are you sure you want delete" %} {{ user.first_name }} {{ user.last_name }} ?</p>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-danger">{% trans "Delete user" %}</button>
+                    <button type="submit" class="btn btn-danger">{% trans "Delete" %}</button>
                 </div>
             </form>
         </div>

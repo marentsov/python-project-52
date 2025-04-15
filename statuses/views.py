@@ -16,9 +16,14 @@ class StatusListView(ListView):
     queryset = Status.objects.all().order_by('-id')
     context_object_name = 'statuses'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Task manager - statuses')
+        return context
 
 
-class StatusCreateView(SuccessMessageMixin, CreateView):
+
+class StatusCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Status
     template_name = 'statuses/create.html'
     form_class = StatusCreateForm
@@ -31,8 +36,8 @@ class StatusCreateView(SuccessMessageMixin, CreateView):
         context['status'] = True
         return context
 
-    def form_valid(self, form):
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     return super().form_valid(form)
 
 class StatusUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Status
@@ -55,6 +60,11 @@ class StatusDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('statuses:statuses')
     template_name = 'statuses/delete.html'
     success_message = _('Status successfully deleted')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Task manager - delete status')
+        return context
 
 
 

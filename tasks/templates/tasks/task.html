@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="custom-form-container col-12 col-lg-10 p-4">
+            <div class="card bg-primary text-white p-3">
+                <div class="mb-2">
+                    <h3>{{ task.title }}</h3>
+                </div>
+            </div>
+            <div class="card bg-light p-3">
+                <div class="mb-2">
+                    <h5>{{ task.description }}</h5>
+                </div>
+                <br>
+                <div class="mb-2">
+                    <p>Автор: {{ task.creator }}</p>
+                </div>
+                <div class="mb-2">
+                    <p>Исполнитель: {{ task.executor }}</p>
+                </div>
+                <div class="mb-2">
+                    <p>Автор: {{ task.status }}</p>
+                </div>
+                <div class="mb-2">
+                    <p>Автор: {{ task.status }}</p>
+                </div>
+                <div class="mb-2">
+                   <a class="mt-2 btn btn-primary w-25" href="{% url "tasks:update" task.id %}">{% trans "Change" %}</a>
+                            <br>
+                    <a class="mt-2 btn btn-danger w-25" href="#">{% trans "Delete" %}</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

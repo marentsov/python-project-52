@@ -12,20 +12,7 @@ class Status(models.Model):
         verbose_name = 'Статуса'
         verbose_name_plural = 'Статусы'
 
-class Task(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField(verbose_name='Описание задачи')
-    status = models.ForeignKey(
-        to=Status,
-        on_delete=models.PROTECT,
-        verbose_name='Статус',
-        related_name='tasks',
-    )
 
-    class Meta:
-        db_table = 'tasks'
-        verbose_name = 'Задача'
-        verbose_name_plural = 'Задачи'
 
 
 # Create your models here.

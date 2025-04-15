@@ -5,12 +5,24 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="custom-form-container col-12 col-lg-10 p-4">
-            <h1 class="mb-3">{% trans "Create status" %}</h1>
+            <h1 class="mb-3">{% trans "Create task" %}</h1>
             <form method="post" class="card bg-light p-3">
                 {% csrf_token %}
                 <div class="mb-2">
                     <label class="mb-1">{% trans "Name" %}</label>
-                    {{ form.name }}
+                    {{ form.title }}
+                </div>
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Description" %}</label>
+                    {{ form.description }}
+                </div>
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Status" %}</label>
+                    {{ form.status }}
+                </div>
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Executor" %}</label>
+                    {{ form.executor }}
                 </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>

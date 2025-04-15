@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="custom-form-container col-12 col-lg-10 p-4">
             <h1 class="mb-3">{% trans "Delete status" %}</h1>
-            <p>{% trans "Are you sure, you want to delete" %} "{{ status.name }}" ?</p>
+            <p>{% trans "Are you sure, you want to delete status" %} "{{ status.name }}" ?</p>
             <form method="post" class="card p-3">
                 {% csrf_token %}
                 <div class="d-grid">
