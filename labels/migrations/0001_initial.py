@@ -12,16 +12,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Status',
+            name='Label',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, unique=True, verbose_name='Статус')),
+                ('name', models.CharField(max_length=50, unique=True, verbose_name='Метка')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Статуса',
-                'verbose_name_plural': 'Статусы',
-                'db_table': 'status',
+                'verbose_name': 'Метка',
+                'verbose_name_plural': 'Метки',
+                'db_table': 'labels',
             },
         ),
     ]

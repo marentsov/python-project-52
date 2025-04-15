@@ -30,5 +30,5 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
     path('statuses/', include('statuses.urls', namespace='statuses')),
     path('tasks/', include('tasks.urls', namespace='tasks')),
-
+    path('labels/', include('labels.urls', namespace='labels')),
 ]

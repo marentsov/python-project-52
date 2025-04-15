@@ -17,16 +17,20 @@
                 </div>
                 <br>
                 <div class="mb-2">
-                    <p>Автор: {{ task.creator }}</p>
+                    <p>{% trans "Creator" %}: {{ task.creator }}</p>
                 </div>
                 <div class="mb-2">
-                    <p>Исполнитель: {{ task.executor }}</p>
+                    <p>{% trans "Executor" %}: {{ task.executor }}</p>
                 </div>
                 <div class="mb-2">
-                    <p>Автор: {{ task.status }}</p>
+                    <p>{% trans "Status" %}: {{ task.status }}</p>
                 </div>
                 <div class="mb-2">
-                    <p>Автор: {{ task.status }}</p>
+                    <p>{% trans "Labels" %}:
+                        {% for label in task.label.all %}
+                        {{ label.name }}
+                        {% endfor %}
+                    </p>
                 </div>
                 <div class="mb-2">
                    <a class="mt-2 btn btn-primary w-25" href="{% url "tasks:update" task.id %}">{% trans "Change" %}</a>

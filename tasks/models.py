@@ -1,5 +1,6 @@
 from django.db import models
 
+from labels.models import Label
 from statuses.models import Status
 from users.models import User
 
@@ -28,6 +29,12 @@ class Task(models.Model):
         on_delete=models.PROTECT,
         verbose_name='Статус',
         related_name='tasks',
+    )
+    label = models.ManyToManyField(
+        to=Label,
+        verbose_name='Метки',
+        related_name='tasks',
+        blank=True,
     )
 
     class Meta:

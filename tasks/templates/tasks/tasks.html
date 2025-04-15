@@ -21,6 +21,10 @@
                     {{ filter_form.executor }}
                 </div>
                 <div class="mb-2">
+                    <label class="mb-1">{% trans "Label" %}</label>
+                    {{ filter_form.label }}
+                </div>
+                <div class="mb-2">
                     <label class="mb-1">{% trans "Only your own tasks" %}</label>
                     {{ filter_form.my_tasks }}
                 </div>

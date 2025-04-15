@@ -10,7 +10,7 @@ from statuses.forms import StatusCreateForm, StatusUpdateForm
 from statuses.models import Status
 
 
-class StatusListView(ListView):
+class StatusListView(LoginRequiredMixin, ListView):
     template_name = 'statuses/statuses.html'
     model = Status
     queryset = Status.objects.all().order_by('-id')

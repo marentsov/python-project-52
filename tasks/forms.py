@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.translation import gettext as _
 
+from labels.models import Label
 from statuses.models import Status
 from tasks.models import Task
 from users.models import User
@@ -26,6 +27,13 @@ class TaskFilterForm(forms.Form):
         label=_('Only my tasks'),
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input',}))
+
+    label = forms.ModelChoiceField(
+        queryset=Label.objects.all(),
+        required=False,
+        label=_('Label'),
+        widget=forms.Select(attrs={
+            'class': 'form-control',}))
 
 
 class TaskCreateForm(forms.ModelForm):
@@ -58,6 +66,13 @@ class TaskCreateForm(forms.ModelForm):
         widget=forms.Select(attrs={
             'class': 'form-control', }))
 
+    label = forms.ModelMultipleChoiceField(
+        queryset=Label.objects.all(),
+        required=False,
+        label=_('Label'),
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-control',}))
+
 
 
 class TaskUpdateForm(forms.ModelForm):
@@ -88,4 +103,11 @@ class TaskUpdateForm(forms.ModelForm):
         required=False,
         label=_('Executor'),
         widget=forms.Select(attrs={
+            'class': 'form-control', }))
+
+    label = forms.ModelMultipleChoiceField(
+        queryset=Label.objects.all(),
+        required=False,
+        label=_('Label'),
+        widget=forms.SelectMultiple(attrs={
             'class': 'form-control', }))

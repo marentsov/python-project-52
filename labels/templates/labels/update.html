@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="custom-form-container col-12 col-lg-10 p-4">
+            <h1 class="mb-3">{% trans "Update label info" %}</h1>
+            <form method="post" class="card bg-light p-3">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label class="mb-1">{% trans "Name" %}</label>
+                    {{ form.name }}
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">{% trans "Update" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
