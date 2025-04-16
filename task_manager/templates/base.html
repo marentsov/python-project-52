@@ -1,45 +1,105 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Task Manager" %}</title>
+    {% bootstrap_css %}
+    <style>
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+        /* Синий цвет для пунктов меню */
+        .nav-link {
+            color: #0d6efd !important; /* Синий цвет Bootstrap primary */
+        }
+        /* Уменьшаем логотип */
+        .navbar-brand {
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+        }
+        @media (max-width: 992px) {
+            .nav-item {
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand bg-primary rounded text-white"
+               href="{% url "index" %}"
+               style="font-size: 1.1rem"> <!-- Дополнительное уменьшение -->
+                {% trans "Task Manager" %}
+            </a>
 
+            <!-- Гамбургер-кнопка для мобильных -->
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <!-- Основное меню -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if not user.is_authenticated %}
+                        <li class="nav-item text-black">
+                            <a class="nav-link" href="{% url "users:users" %}">{% trans "Users" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "users:create" %}">{% trans "Sign up" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "login" %}">{% trans "Log in" %}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "users:users" %}">{% trans "Users" %}</a>
+                        </li>
+                   <li class="nav-item">
+                            <a class="nav-link" href="{% url "statuses:statuses" %}">{% trans "Statuses" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "labels:labels" %}">{% trans "Labels" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "tasks:tasks" %}">{% trans "Tasks" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "users:update" user.id %}">{% trans "Profile" %}</a>
+                        </li>
+                  <li class="nav-item">
+                            <a class="nav-link" href="{% url "logout" %}">{% trans "Log out" %}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<!--header -->
-<body>
-  <div class="container-fluid">
-    <header class="d-flex justify-content-left py-3 bg-light">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="{% url "index" %}" class="nav-link active" aria-current="page">{% trans "Task manager" %}</a></li>
-        {% if not user.is_authenticated %}
-        <li class="nav-item"><a href="{% url "users:users" %}" class="nav-link ms-3">{% trans "Users" %}</a></li>
-        <li class="nav-item"><a href="{% url "users:create" %}" class="nav-link ms-3">{% trans "Sign up" %}</a></li>
-        <li class="nav-item"><a href="{% url "login" %}" class="nav-link ms-3 ">{% trans "Log in" %}</a></li>
-        {% else %}
-        <li class="nav-item"><a href="{% url "users:users" %}" class="nav-link ms-3">{% trans "Users" %}</a></li>
-        <li class="nav-item"><a href="{% url "statuses:statuses" %}" class="nav-link ms-3">{% trans "Statuses" %}</a></li>
-        <li class="nav-item"><a href="{% url "labels:labels" %}" class="nav-link ms-3">{% trans "Labels" %}</a></li>
-        <li class="nav-item"><a href="{% url "tasks:tasks" %}" class="nav-link ms-3">{% trans "Tasks" %}</a></li>
-        <li class="nav-item"><a href="{% url "users:update" user.id %}" class="nav-link ms-3">{% trans "Profile" %}</a></li>
-        <li class="nav-item"><a href="{% url "logout" %}" class="nav-link ms-3">{% trans "Log out" %}</a></li>
-        {% endif %}
-      </ul>
-    </header>
-  </div>
-<!--конец header-->
-{% include "notifications.html" %}
-<!--контент на странице-->
-  <div class="container-fluid">
-{% block content %}
+    <!-- Основной контент -->
+    <main class="container-fluid flex-grow-1 mt-3">
+        {% include "notifications.html" %}
+        {% block content %}{% endblock %}
+    </main>
 
-{% endblock %}
-  </div>
-<!--конец контента на странице-->
+    <!-- Footer -->
+    <footer class="mt-auto py-3 bg-light">
+        <div class="container-fluid">
+            <!-- Добавьте содержимое футера при необходимости -->
+        </div>
+    </footer>
+
+    {% bootstrap_javascript %}
 </body>
-
-<!--footer -->
-<footer>
-
-</footer>
-<!--конец footer-->
+</html>
