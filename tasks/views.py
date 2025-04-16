@@ -11,6 +11,7 @@ from django.views.generic import (
 )
 
 from tasks.forms import TaskCreateForm, TaskFilterForm, TaskUpdateForm
+from tasks.mixins import UserTaskPermissionMixin
 from tasks.models import Task
 
 
@@ -93,7 +94,7 @@ class TaskDetailView(LoginRequiredMixin, DetailView):
         return context
 
 
-class TaskDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+class TaskDeleteView(SuccessMessageMixin, UserTaskPermissionMixin, DeleteView):
 
     model = Task
     success_url = reverse_lazy('tasks:tasks')
