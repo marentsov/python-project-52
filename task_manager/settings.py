@@ -12,11 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
+
 from django.contrib.messages import constants as messages
-
-
-
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -32,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#DEBUG = os.getenv('DEBUG', 'False') == True
+# DEBUG = os.getenv('DEBUG', 'False') == True
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -233,7 +231,7 @@ BOOTSTRAP5 = {
     'server_side_validation': True,
 
     # Renderers (only set these if you have studied the source and understand the inner workings).
-    'formset_renderers':{
+    'formset_renderers': {
         'default': 'django_bootstrap5.renderers.FormsetRenderer',
     },
     'form_renderers': {

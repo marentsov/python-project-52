@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Label(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Метка')
     created_at = models.DateTimeField(auto_now_add=True)

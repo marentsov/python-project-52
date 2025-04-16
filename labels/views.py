@@ -1,15 +1,12 @@
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from labels.forms import LabelCreateForm, LabelUpdateForm
+from labels.mixins import PreventUsedLabelsDeletionMixin
 from labels.models import Label
-from statuses.forms import StatusCreateForm, StatusUpdateForm
-
 
 
 class LabelListView(LoginRequiredMixin, ListView):
@@ -22,7 +19,6 @@ class LabelListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - labels')
         return context
-
 
 
 class LabelCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
@@ -53,7 +49,7 @@ class LabelUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return context
 
 
-class LabelDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+class LabelDeleteView(PreventUsedLabelsDeletionMixin, SuccessMessageMixin, LoginRequiredMixin, DeleteView):
 
     model = Label
     success_url = reverse_lazy('labels:labels')

@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 
 from labels.models import Label
 
+
 class LabelCreateForm(forms.ModelForm):
     class Meta:
         model = Label

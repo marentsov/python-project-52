@@ -13,27 +13,28 @@ class TaskFilterForm(forms.Form):
         required=False,
         label=_('Status'),
         widget=forms.Select(attrs={
-            'class': 'form-control',}))
+            'class': 'form-control', }))
 
     executor = forms.ModelChoiceField(
         queryset=User.objects.all(),
         required=False,
         label=_('Executor'),
         widget=forms.Select(attrs={
-            'class': 'form-control',}))
+            'class': 'form-control', }))
 
     my_tasks = forms.BooleanField(
         required=False,
         label=_('Only my tasks'),
         widget=forms.CheckboxInput(attrs={
-            'class': 'form-check-input',}))
+            'class': 'form-check-input', }))
 
-    label = forms.ModelChoiceField(
+    label = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
         required=False,
         label=_('Label'),
-        widget=forms.Select(attrs={
-            'class': 'form-control',}))
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-select',
+            'size': '5'}))
 
 
 class TaskCreateForm(forms.ModelForm):
@@ -71,8 +72,8 @@ class TaskCreateForm(forms.ModelForm):
         required=False,
         label=_('Label'),
         widget=forms.SelectMultiple(attrs={
-            'class': 'form-control',}))
-
+            'class': 'form-select',
+            'size': '5'}))
 
 
 class TaskUpdateForm(forms.ModelForm):
@@ -107,7 +108,5 @@ class TaskUpdateForm(forms.ModelForm):
 
     label = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
-        required=False,
-        label=_('Label'),
-        widget=forms.SelectMultiple(attrs={
-            'class': 'form-control', }))
+        widget=forms.CheckboxSelectMultiple(
+            attrs={'class': 'checkbox-container'}))

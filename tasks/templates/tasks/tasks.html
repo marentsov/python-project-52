@@ -10,7 +10,7 @@
             <div class="d-grid">
                     <a class="btn btn-primary w-25 mb-3" href="{% url "tasks:create" %}">{% trans "Create task" %}</a>
                 </div>
-            <form method="get" class="card p-3">
+            <form method="get" class="card p-3 bg-light">
                 {% csrf_token %}
                 <div class="mb-2">
                     <label class="mb-1">{% trans "Status" %}</label>

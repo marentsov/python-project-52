@@ -22,7 +22,7 @@
         <li class="nav-item"><a href="{% url "labels:labels" %}" class="nav-link ms-3">{% trans "Labels" %}</a></li>
         <li class="nav-item"><a href="{% url "tasks:tasks" %}" class="nav-link ms-3">{% trans "Tasks" %}</a></li>
         <li class="nav-item"><a href="{% url "users:update" user.id %}" class="nav-link ms-3">{% trans "Profile" %}</a></li>
-        <li class="nav-item"><a href="{% url "users:logout" %}" class="nav-link ms-3">{% trans "Log out" %}</a></li>
+        <li class="nav-item"><a href="{% url "logout" %}" class="nav-link ms-3">{% trans "Log out" %}</a></li>
         {% endif %}
       </ul>
     </header>

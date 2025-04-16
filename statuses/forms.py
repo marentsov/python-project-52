@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 
 from statuses.models import Status
 
+
 class StatusCreateForm(forms.ModelForm):
     class Meta:
         model = Status

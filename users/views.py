@@ -1,16 +1,18 @@
 from django.contrib import auth, messages
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext as _
-from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
-from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
 from users.models import User
+from users.mixins import UserPermissionMixin
 
 
 class UserLoginView(LoginView):
@@ -43,22 +45,21 @@ class UserCreateView(SuccessMessageMixin, CreateView):
         context['title'] = _('Task manager - registration')
         return context
 
-class UserUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+
+class UserUpdateView(UserPermissionMixin, UpdateView):
+    model = User
     template_name = 'users/update.html'
     form_class = UserUpdateForm
     success_url = reverse_lazy('users:users')
 
-    def get_object(self, queryset=None):
-        return self.request.user
+    # УДАЛЕНО переопределение get_object - теперь используем стандартное получение объекта
 
     def form_valid(self, form):
-        message = _('User info was updated')
-        messages.success(self.request, message)
+        messages.success(self.request, _('User info was updated'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        message = _('User info update error.')
-        messages.error(self.request, message)
+        messages.error(self.request, _('User info update error.'))
         return super().form_invalid(form)
 
     def get_context_data(self, **kwargs):
@@ -66,15 +67,50 @@ class UserUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         context['title'] = _('Task manager - update user info')
         return context
 
-class UserDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
-
+class UserDeleteView(UserPermissionMixin, DeleteView):
     model = User
     success_url = reverse_lazy('index')
     template_name = 'users/delete.html'
     success_message = _('User successfully deleted')
 
-
-
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, self.success_message)
+        return super().delete(request, *args, **kwargs)
+# class UserUpdateView(UserPermissionMixin, UpdateView):
+#     model = User
+#
+#     template_name = 'users/update.html'
+#     form_class = UserUpdateForm
+#     success_url = reverse_lazy('users:users')
+#
+#
+#     def get_object(self, queryset=None):
+#         return self.request.user
+#
+#     def form_valid(self, form):
+#         message = _('User info was updated')
+#         messages.success(self.request, message)
+#         return super().form_valid(form)
+#
+#     def form_invalid(self, form):
+#         message = _('User info update error.')
+#         messages.error(self.request, message)
+#         return super().form_invalid(form)
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['title'] = _('Task manager - update user info')
+#         return context
+#
+#
+# class UserDeleteView(UserPermissionMixin, SuccessMessageMixin, DeleteView):
+#
+#     model = User
+#     success_url = reverse_lazy('index')
+#     template_name = 'users/delete.html'
+#     success_message = _('User successfully deleted')
+#
+#
 class UserListView(ListView):
     template_name = 'users/users.html'
     model = User
@@ -82,10 +118,18 @@ class UserListView(ListView):
     context_object_name = 'users'
 
 
-@login_required
-def logout(request):
-    message = _('You have successfully logged out of your account')
-    messages.success(request, f"{request.user.username}, {message}")
-    auth.logout(request)
-    return redirect(reverse('index'))
-# Create your views here.
+class UserLogoutView(LoginView):
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            logout(request)
+            messages.info(request, _('You are logged out'))
+        return redirect('index')
+
+# @login_required
+# def logout(request):
+#     message = _('You have successfully logged out of your account')
+#     messages.success(request, f"{request.user.username}, {message}")
+#     auth.logout(request)
+#     return redirect(reverse('index'))
+# # Create your views here.

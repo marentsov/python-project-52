@@ -1,13 +1,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
-from django.template.context_processors import request
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext as _
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+)
 
-from tasks.forms import TaskFilterForm, TaskCreateForm, TaskUpdateForm
+from tasks.forms import TaskCreateForm, TaskFilterForm, TaskUpdateForm
 from tasks.models import Task
 
 
@@ -24,15 +27,15 @@ class TaskListView(LoginRequiredMixin, ListView):
         label = self.request.GET.get('label')
         my_tasks = self.request.GET.get('my_tasks')
 
-        tasks = Task.objects.all().order_by('-id') # базовый queryset
+        tasks = Task.objects.all().order_by('-id')  # базовый queryset
 
-        if status: # если выбран статус
+        if status:  # если выбран статус
             tasks = tasks.filter(status_id=status)
-        if executor: # если выбран исполнитель
+        if executor:  # если выбран исполнитель
             tasks = tasks.filter(executor_id=executor)
         if label:
-            tasks = tasks.filter(label_id=labels)
-        if my_tasks == 'on': # если выбрана опция "только мои задачи"
+            tasks = tasks.filter(label=label)
+        if my_tasks == 'on':  # если выбрана опция "только мои задачи"
             tasks = tasks.filter(creator=self.request.user)
 
         return tasks
@@ -43,6 +46,7 @@ class TaskListView(LoginRequiredMixin, ListView):
         context['title'] = _('Task manager - tasks')
         return context
 
+
 class TaskCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
 
     model = Task
@@ -51,13 +55,11 @@ class TaskCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     success_message = _('The task was created successfully')
     success_url = reverse_lazy('tasks:tasks')
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - create task')
         context['task'] = True
         return context
-
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
@@ -102,15 +104,6 @@ class TaskDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - delete task')
         return context
-
-
-
-
-
-
-
-
-
 
 
 # Create your views here.

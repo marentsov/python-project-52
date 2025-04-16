@@ -1,12 +1,11 @@
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
-from django.views.generic import CreateView, ListView, FormView, UpdateView, DeleteView
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from statuses.forms import StatusCreateForm, StatusUpdateForm
+from statuses.mixins import PreventUsedStatusDeletionMixin
 from statuses.models import Status
 
 
@@ -20,7 +19,6 @@ class StatusListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - statuses')
         return context
-
 
 
 class StatusCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
@@ -39,6 +37,7 @@ class StatusCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     # def form_valid(self, form):
     #     return super().form_valid(form)
 
+
 class StatusUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Status
     template_name = 'statuses/update.html'
@@ -54,7 +53,7 @@ class StatusUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return context
 
 
-class StatusDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+class StatusDeleteView(PreventUsedStatusDeletionMixin, SuccessMessageMixin, LoginRequiredMixin, DeleteView):
 
     model = Status
     success_url = reverse_lazy('statuses:statuses')
@@ -65,7 +64,6 @@ class StatusDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - delete status')
         return context
-
 
 
 
