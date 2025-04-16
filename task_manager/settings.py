@@ -258,7 +258,7 @@ MESSAGE_TAGS = {
  }
 
 ROLLBAR = {
-    'access_token': 'e958e6e5a2c44dab856df6c681973d50c17b76b58bc766bb52b2aaaf5980ddf91936bcd387102fd17f7536e6c1b941d1',
+    'access_token': os.getenv('ACCESS_TOKEN'),
     'environment': 'development' if DEBUG else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
