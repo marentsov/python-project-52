@@ -62,7 +62,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -254,4 +257,9 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
  }
 
-
+ROLLBAR = {
+    'access_token': 'e958e6e5a2c44dab856df6c681973d50c17b76b58bc766bb52b2aaaf5980ddf91936bcd387102fd17f7536e6c1b941d1',
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
