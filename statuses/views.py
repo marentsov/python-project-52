@@ -66,5 +66,4 @@ class StatusDeleteView(PreventUsedStatusDeletionMixin, SuccessMessageMixin, Logi
         return context
 
 
-
 # Create your views here.

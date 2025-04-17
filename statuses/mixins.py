@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.translation import gettext as _
 
+
 class PreventUsedStatusDeletionMixin:
     # миксин предотвращающий удаление статусов которые назначены в задачах
     error_message = _('The status is in use and cannot be deleted')

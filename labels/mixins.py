@@ -3,7 +3,6 @@ from django.shortcuts import redirect
 from django.utils.translation import gettext as _
 
 
-
 class PreventUsedLabelsDeletionMixin:
     # миксин предотвращающий удаление статусов которые назначены в задачах
     error_message = _('The label is in use and cannot be deleted')

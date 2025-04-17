@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
 def index(request):
     a = None
-    a.hello() # Creating an error with an invalid line of code
+    a.hello()  # Creating an error with an invalid line of code
     return HttpResponse("Hello, world. You're at the pollapp index.")
 
 

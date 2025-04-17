@@ -1,18 +1,16 @@
 from django.contrib import auth, messages
 from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
-from users.models import User
 from users.mixins import UserPermissionMixin
+from users.models import User
 
 
 class UserLoginView(LoginView):
@@ -67,6 +65,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
         context['title'] = _('Task manager - update user info')
         return context
 
+
 class UserDeleteView(UserPermissionMixin, DeleteView):
     model = User
     success_url = reverse_lazy('index')
@@ -76,6 +75,8 @@ class UserDeleteView(UserPermissionMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(request, self.success_message)
         return super().delete(request, *args, **kwargs)
+
+
 # class UserUpdateView(UserPermissionMixin, UpdateView):
 #     model = User
 #
