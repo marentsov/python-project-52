@@ -312,7 +312,7 @@ msgstr "Регистрация"
 
 #: task_manager/templates/base.html:63
 msgid "Log in"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/templates/base.html:79
 msgid "Profile"
