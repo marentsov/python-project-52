@@ -132,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'ru')
 
 LANGUAGES = (
-    ('en', 'English'),
+    # ('en', 'English'),
     ('ru', 'Russian'),
 )
 
