@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'ru')
 
 LANGUAGES = (
     ('en', 'English'),
@@ -138,11 +138,11 @@ LANGUAGES = (
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = os.getenv('USE_I18N', True)
 
-USE_L10N = True
+USE_L10N = os.getenv('USE_L10N', True)
 
-USE_TZ = True
+USE_TZ = os.getenv('USE_TZ', True)
 
 LOCALE_PATHS = [
     BASE_DIR / 'task_manager/locale',
