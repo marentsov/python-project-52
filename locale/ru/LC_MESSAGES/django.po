@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 13:16+0300\n"
+"POT-Creation-Date: 2025-04-17 14:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Name"
 msgstr "Имя"
 
-#: labels/mixins.py:9
+#: labels/mixins.py:8
 msgid "The label is in use and cannot be deleted"
 msgstr "Метка используется ее нельзя удалить"
 
@@ -64,7 +64,7 @@ msgstr "Вы уверены, что хотите удалить метку"
 msgid "Delete"
 msgstr "Удалить"
 
-#: labels/templates/labels/labels.html:8 task_manager/templates/base.html:22
+#: labels/templates/labels/labels.html:8 task_manager/templates/base.html:73
 #: tasks/templates/tasks/task.html:29
 msgid "Labels"
 msgstr "Метки"
@@ -120,7 +120,7 @@ msgstr "Метка успешно удалена"
 msgid "Task manager - delete label"
 msgstr "Менеджер задач - удалить метку"
 
-#: statuses/mixins.py:7
+#: statuses/mixins.py:8
 msgid "The status is in use and cannot be deleted"
 msgstr "Статус используется его нельзя удалить"
 
@@ -138,7 +138,7 @@ msgid "Are you sure, you want to delete status"
 msgstr "Вы уверены, что хотите удалить статус"
 
 #: statuses/templates/statuses/statuses.html:8
-#: task_manager/templates/base.html:21
+#: task_manager/templates/base.html:70
 msgid "Statuses"
 msgstr "Статусы"
 
@@ -174,34 +174,40 @@ msgstr "Статус успешно удален"
 msgid "Task manager - delete status"
 msgstr "Менеджер задач - удалить статус"
 
-#: task_manager/templates/base.html:14 task_manager/templates/index.html:11
-msgid "Task manager"
-msgstr ""
+#: task_manager/templates/base.html:39
+#, fuzzy
+#| msgid "Task manager - main"
+msgid "Task Manager"
+msgstr "Менеджер задач - главная"
 
-#: task_manager/templates/base.html:16 task_manager/templates/base.html:20
+#: task_manager/templates/base.html:57 task_manager/templates/base.html:67
 #: users/templates/users/users.html:8
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base.html:17
+#: task_manager/templates/base.html:60
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/templates/base.html:18
+#: task_manager/templates/base.html:63
 msgid "Log in"
 msgstr "Войти"
 
-#: task_manager/templates/base.html:23 tasks/templates/tasks/tasks.html:9
+#: task_manager/templates/base.html:76 tasks/templates/tasks/tasks.html:9
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/templates/base.html:24
+#: task_manager/templates/base.html:79
 msgid "Profile"
 msgstr "Профиль"
 
-#: task_manager/templates/base.html:25
+#: task_manager/templates/base.html:82
 msgid "Log out"
 msgstr "Выйти"
+
+#: task_manager/templates/index.html:11
+msgid "Task manager"
+msgstr ""
 
 #: task_manager/templates/index.html:12
 msgid ""
@@ -212,6 +218,10 @@ msgstr ""
 "Менеджер задач - это система постановки задач. Она позволяет ставить задачи, "
 "исполнителей и менять их статусы. Для использования сервиса обязательна "
 "регистрация."
+
+#: task_manager/templates/index.html:13
+msgid "Learn more about task managers"
+msgstr "Подробнее о менеджерах задач"
 
 #: task_manager/views.py:11
 msgid "Task manager - main"
@@ -239,6 +249,10 @@ msgstr "Только мои задачи"
 #: tasks/templates/tasks/tasks.html:24 tasks/templates/tasks/update.html:30
 msgid "Label"
 msgstr "Метка"
+
+#: tasks/mixins.py:12
+msgid "Task can only be deleted by author."
+msgstr "Задача может быть удалена только автором"
 
 #: tasks/templates/tasks/create.html:8 tasks/templates/tasks/tasks.html:11
 msgid "Create task"
@@ -276,35 +290,35 @@ msgstr "Автор"
 msgid "Update task"
 msgstr "Обновить задачу"
 
-#: tasks/views.py:46
+#: tasks/views.py:47
 msgid "Task manager - tasks"
 msgstr "Менеджер задач - задачи"
 
-#: tasks/views.py:55
+#: tasks/views.py:56
 msgid "The task was created successfully"
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:60
+#: tasks/views.py:61
 msgid "Task manager - create task"
 msgstr "Менеджер задач - создать задачу"
 
-#: tasks/views.py:74
+#: tasks/views.py:75
 msgid "The task was updated successfully"
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:79
+#: tasks/views.py:80
 msgid "Task manager - update task"
 msgstr "Менеджер задач - обновление задачи"
 
-#: tasks/views.py:92
+#: tasks/views.py:93
 msgid "Task manager - detail view of task"
 msgstr "Менеджер задач - подробно о задаче"
 
-#: tasks/views.py:101
+#: tasks/views.py:102
 msgid "Task successfully deleted"
 msgstr "Задача успешно удалена"
 
-#: tasks/views.py:105
+#: tasks/views.py:106
 msgid "Task manager - delete task"
 msgstr "Менеджер задач - удалить задачу"
 
@@ -333,7 +347,6 @@ msgid "You don't have the rights to change another user."
 msgstr "У вас нет прав на изменение другого пользователя"
 
 #: users/mixins.py:14
-
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы, зайдите в аккаунт"
 
@@ -409,40 +422,39 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: users/views.py:25
+#: users/views.py:23
 msgid "Task manager - authorization"
 msgstr "Менеджер задач - авторизация"
 
-#: users/views.py:29
+#: users/views.py:27
 msgid "You are logged in to your account"
 msgstr "Вы зашли в аккаунт"
 
-#: users/views.py:41
+#: users/views.py:39
 msgid "You have successfully registered!"
 msgstr "Вы успешно зарегистрировались!"
 
-#: users/views.py:45
+#: users/views.py:43
 msgid "Task manager - registration"
 msgstr "Менеджер задач - регистрация"
 
-#: users/views.py:58
+#: users/views.py:56
 msgid "User info was updated"
 msgstr "Информация о пользователе обновлена"
 
-#: users/views.py:62
+#: users/views.py:60
 msgid "User info update error."
 msgstr "Ошибка обновления информации"
 
-#: users/views.py:67
+#: users/views.py:65
 msgid "Task manager - update user info"
 msgstr "Менеджер задач - обновление пользовательской информации"
 
-#: users/views.py:74
+#: users/views.py:73
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
-#: users/views.py:126
-
+#: users/views.py:127
 msgid "You are logged out"
 msgstr "Вы вышли из аккаунта"
 
