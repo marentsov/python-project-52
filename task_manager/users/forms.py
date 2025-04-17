@@ -5,8 +5,7 @@ from django.contrib.auth.forms import (
     UserCreationForm,
 )
 from django.utils.translation import gettext as _
-
-from users.models import User
+from task_manager.users.models import User
 
 
 class UserLoginForm(AuthenticationForm):

@@ -7,10 +7,9 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
-
-from users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
-from users.mixins import UserPermissionMixin
-from users.models import User
+from task_manager.users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
+from task_manager.users.mixins import UserPermissionMixin
+from task_manager.users.models import User
 
 
 class UserLoginView(LoginView):

@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 
+import dj_database_url
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
-import dj_database_url
 
 load_dotenv()
 
@@ -56,11 +56,11 @@ INSTALLED_APPS = [
     'django_bootstrap5',
 
     'task_manager',
-    'users',
-    'statuses',
-    'tasks',
-    'labels',
-]
+    "task_manager.users.apps.UsersConfig",
+    "task_manager.statuses.apps.StatusesConfig",
+    "task_manager.tasks.apps.TasksConfig",
+    "task_manager.labels.apps.LabelsConfig",
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -9,10 +9,9 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
-
-from tasks.forms import TaskCreateForm, TaskFilterForm, TaskUpdateForm
-from tasks.mixins import UserTaskPermissionMixin
-from tasks.models import Task
+from task_manager.tasks.forms import TaskCreateForm, TaskFilterForm, TaskUpdateForm
+from task_manager.tasks.mixins import UserTaskPermissionMixin
+from task_manager.tasks.models import Task
 
 
 class TaskListView(LoginRequiredMixin, ListView):

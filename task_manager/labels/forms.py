@@ -1,7 +1,6 @@
 from django import forms
 from django.utils.translation import gettext as _
-
-from labels.models import Label
+from task_manager.labels.models import Label
 
 
 class LabelCreateForm(forms.ModelForm):
