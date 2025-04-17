@@ -24,7 +24,6 @@ app_name = 'main'
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('testrollbar/', index, name='test'),
     path('login/', UserLoginView.as_view(), name='login'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
     path('users/', include('task_manager.users.urls', namespace='users')),
