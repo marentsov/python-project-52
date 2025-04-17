@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import include, path
 
 from task_manager.views import IndexView, index
-from users.views import UserLoginView, UserLogoutView
+from task_manager.users.views import UserLoginView, UserLogoutView
 
 app_name = 'main'
 
@@ -27,8 +27,8 @@ urlpatterns = [
     path('testrollbar/', index, name='test'),
     path('login/', UserLoginView.as_view(), name='login'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
-    path('users/', include('users.urls', namespace='users')),
-    path('statuses/', include('statuses.urls', namespace='statuses')),
-    path('tasks/', include('tasks.urls', namespace='tasks')),
-    path('labels/', include('labels.urls', namespace='labels')),
+    path('users/', include('task_manager.users.urls', namespace='users')),
+    path('statuses/', include('task_manager.statuses.urls', namespace='statuses')),
+    path('tasks/', include('task_manager.tasks.urls', namespace='tasks')),
+    path('labels/', include('task_manager.labels.urls', namespace='labels')),
 ]
