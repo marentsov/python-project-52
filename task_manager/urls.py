@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import include, path
 
-from task_manager.views import IndexView, index
+from task_manager.views import IndexView
 from task_manager.users.views import UserLoginView, UserLogoutView
 
 app_name = 'main'
