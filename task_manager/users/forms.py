@@ -11,15 +11,17 @@ from task_manager.users.models import User
 class UserLoginForm(AuthenticationForm):
 
     username = forms.CharField(
+        label=_('Username'),
         widget=forms.TextInput(attrs={
             "autofocus": True,
             'class': 'form-control',
-            'placeholder': _('Enter your login')}))
+            'placeholder': _('Username')}))
     password = forms.CharField(
+        label=_('Password'),
         widget=forms.PasswordInput(attrs={
             "autocomplete": "current-password",
             'class': "form-control",
-            'placeholder': _('Enter your password')}))
+            'placeholder': _('Password')}))
 
     class Meta:
         model = User

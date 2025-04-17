@@ -10,10 +10,12 @@
                 {% csrf_token %}
 
                 <div class="mb-3">
+                    {{ form.username.label }}
                     {{ form.username }}
                 </div>
 
                 <div class="mb-3">
+                    {{ form.password.label }}
                     {{ form.password }}
                 </div>
 
