@@ -10,17 +10,17 @@
                 {% csrf_token %}
 
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Name" %}</label>
+                    <label class="mb-1" for="id_first_name">{% trans "Name" %}</label>
                     {{ form.first_name }}
                 </div>
 
                 <div class="mb-2">
-                    <label class="form-label mb-1">{% trans "Surname" %}</label>
+                    <label class="form-label mb-1" for="id_last_name">{% trans "Surname" %}</label>
                     {{ form.last_name }}
                 </div>
 
                 <div class="mb-2">
-                    <label class="form-label mb-1">{% trans "Имя пользователя" %}</label>
+                    <label class="form-label mb-1" for="id_username">{% trans "Имя пользователя" %}</label>
                     {{ form.username }}
                     <div class="form-text small mt-0">
                         {% trans "* Required field. No more than 150 characters. Only letters, numbers, and symbols @/./+/-/_." %}
@@ -28,7 +28,7 @@
                     </div>
 
                 <div class="mb-2">
-                    <label class="form-label mb-1">{% trans "Password" %}</label>
+                    <label class="form-label mb-1" for="id_password1">{% trans "Password" %}</label>
                     {{ form.password1 }}
                     <div class="form-text small mt-0">
                         {% trans "* Your password must contain at least 3 characters." %}
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label mb-1">{% trans "Password confirmation" %}</label>
+                    <label class="form-label mb-1" for="id_password2">{% trans "Password confirmation" %}</label>
                     {{ form.password2 }}
                     <div class="form-text small mt-0">
                         {% trans "* Please repeat the password again" %}

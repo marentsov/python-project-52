@@ -415,7 +415,7 @@ msgstr "Подтверждение пароля"
 #: task_manager/users/templates/users/create.html:42
 #: task_manager/users/templates/users/update.html:42
 msgid "* Please repeat the password again"
-msgstr "* Пожалуйста повторите пароль"
+msgstr "Для подтверждения введите пожалуйста, пароль еще раз."
 
 #: task_manager/users/templates/users/create.html:47
 msgid "Register"
