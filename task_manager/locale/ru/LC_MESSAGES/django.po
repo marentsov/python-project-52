@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 12:45+0300\n"
+"POT-Creation-Date: 2025-04-18 20:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -341,12 +341,14 @@ msgid "Learn more about task managers"
 msgstr "Подробнее о менеджерах задач"
 
 #: task_manager/users/forms.py:14 task_manager/users/forms.py:18
+#: task_manager/users/templates/users/login.html:13
 #: task_manager/users/templates/users/users.html:13
 msgid "Username"
 msgstr "Имя пользователя"
 
 #: task_manager/users/forms.py:20 task_manager/users/forms.py:24
 #: task_manager/users/templates/users/create.html:31
+#: task_manager/users/templates/users/login.html:18
 #: task_manager/users/templates/users/update.html:31
 msgid "Password"
 msgstr "Пароль"
@@ -422,13 +424,16 @@ msgid "Register"
 msgstr "Зарегистрировать"
 
 #: task_manager/users/templates/users/delete.html:8
-#: task_manager/users/templates/users/delete.html:13
 msgid "Delete user"
-msgstr "Да, удалить"
+msgstr "Удаление пользователя"
 
 #: task_manager/users/templates/users/delete.html:11
 msgid "Are you sure you want delete"
 msgstr "Вы уверены, что хотите удалить"
+
+#: task_manager/users/templates/users/delete.html:13
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/users/templates/users/login.html:8
 msgid "Login"
@@ -483,7 +488,6 @@ msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py:122
-
 msgid "Task manager - users"
 msgstr "Менеджер задач - пользователи"
 
@@ -492,7 +496,6 @@ msgid "You are logged out"
 msgstr "Вы разлогинены"
 
 #: task_manager/users/views.py:136
-
 msgid "Task manager - logout"
 msgstr "Менеджер задач - задачи"
 
