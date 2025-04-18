@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url
+from django.conf import settings
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
@@ -145,9 +146,7 @@ USE_L10N = os.getenv('USE_L10N', True)
 
 USE_TZ = os.getenv('USE_TZ', True)
 
-LOCALE_PATHS = [
-    BASE_DIR / 'task_manager/locale',
-]
+LOCALE_PATHS = [os.path.join(settings.BASE_DIR, 'locale')]
 
 
 # Static files (CSS, JavaScript, Images)
