@@ -117,6 +117,11 @@ class UserListView(ListView):
     queryset = User.objects.all().order_by('-id')
     context_object_name = 'users'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Task manager - users')
+        return context
+
 
 class UserLogoutView(LoginView):
 
@@ -125,6 +130,13 @@ class UserLogoutView(LoginView):
             logout(request)
             messages.info(request, _('You are logged out'))
         return redirect('index')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Task manager - logout')
+        return context
+
+
 
 # @login_required
 # def logout(request):
