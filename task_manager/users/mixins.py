@@ -32,3 +32,18 @@ class UserPermissionMixin(LoginRequiredMixin, UserPassesTestMixin):
             messages.error(self.request, self.permission_denied_message)
             return redirect(self.index_url)
 
+
+class PreventUsedUserDeletionMixin:
+    # миксин предотвращающий удаление статусов которые назначены в задачах
+    error_message = _('The user is in use and cannot be deleted')
+    redirect_url = 'users:users'
+    related_name = 'created_tasks'
+
+    def post(self, request, *args, **kwargs):
+
+        user = self.get_object()
+
+        if getattr(user, self.related_name).exists():
+            messages.error(request, self.error_message)
+            return redirect(self.redirect_url)
+        return super().post(request, *args, **kwargs)

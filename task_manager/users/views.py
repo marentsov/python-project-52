@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from task_manager.users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
-from task_manager.users.mixins import UserPermissionMixin
+from task_manager.users.mixins import UserPermissionMixin, PreventUsedUserDeletionMixin
 from task_manager.users.models import User
 
 
@@ -65,7 +65,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
         return context
 
 
-class UserDeleteView(UserPermissionMixin, DeleteView):
+class UserDeleteView(PreventUsedUserDeletionMixin, UserPermissionMixin, DeleteView):
     model = User
     success_url = reverse_lazy('index')
     template_name = 'users/delete.html'
