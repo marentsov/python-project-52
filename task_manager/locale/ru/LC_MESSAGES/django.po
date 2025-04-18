@@ -424,7 +424,7 @@ msgstr "Зарегистрировать"
 #: task_manager/users/templates/users/delete.html:8
 #: task_manager/users/templates/users/delete.html:13
 msgid "Delete user"
-msgstr "Удалить пользователя"
+msgstr "Да, удалить"
 
 #: task_manager/users/templates/users/delete.html:11
 msgid "Are you sure you want delete"
