@@ -460,7 +460,7 @@ msgstr "Вы залогинены"
 
 #: task_manager/users/views.py:38
 msgid "You have successfully registered!"
-msgstr "Вы успешно зарегистрировались!"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:42
 msgid "Task manager - registration"
