@@ -468,7 +468,7 @@ msgstr "Менеджер задач - регистрация"
 
 #: task_manager/users/views.py:55
 msgid "User info was updated"
-msgstr "Информация о пользователе обновлена"
+msgstr "Пользователь успешно обновлен"
 
 #: task_manager/users/views.py:59
 msgid "User info update error."
