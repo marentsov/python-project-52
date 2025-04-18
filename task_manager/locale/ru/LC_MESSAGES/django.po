@@ -361,15 +361,15 @@ msgstr "Введите вашу фамилию"
 
 #: task_manager/users/forms.py:56 task_manager/users/forms.py:97
 msgid "Enter your login"
-msgstr "Введите свой логин"
+msgstr "Имя пользователя"
 
 #: task_manager/users/forms.py:61 task_manager/users/forms.py:102
 msgid "Enter your password"
-msgstr "Введите свой пароль"
+msgstr "Пароль"
 
 #: task_manager/users/forms.py:68 task_manager/users/forms.py:110
 msgid "Repeat your password"
-msgstr "Повторите пароль"
+msgstr "Подтверждение пароля"
 
 #: task_manager/users/mixins.py:13
 msgid "You don't have the rights to change another user."
