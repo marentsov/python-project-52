@@ -444,7 +444,7 @@ msgstr "Обновление пользовательских данных"
 
 #: task_manager/users/templates/users/update.html:47
 msgid "Update info"
-msgstr "Обновить данные"
+msgstr "Изменить"
 
 #: task_manager/users/templates/users/users.html:14
 msgid "Full name"
