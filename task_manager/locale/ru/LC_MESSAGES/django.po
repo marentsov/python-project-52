@@ -382,8 +382,6 @@ msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы, зайдите в аккаунт"
 
 #: task_manager/users/mixins.py:38
-#, fuzzy
-#| msgid "The status is in use and cannot be deleted"
 msgid "The user is in use and cannot be deleted"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
