@@ -353,11 +353,11 @@ msgstr "Пароль"
 
 #: task_manager/users/forms.py:45 task_manager/users/forms.py:86
 msgid "Enter your first name"
-msgstr "Введите ваше имя"
+msgstr "Имя"
 
 #: task_manager/users/forms.py:50 task_manager/users/forms.py:91
 msgid "Enter your last name"
-msgstr "Введите вашу фамилию"
+msgstr "Фамилия"
 
 #: task_manager/users/forms.py:56 task_manager/users/forms.py:97
 msgid "Enter your login"
