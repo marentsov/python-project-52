@@ -483,18 +483,16 @@ msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py:122
-#, fuzzy
-#| msgid "Task manager - statuses"
+
 msgid "Task manager - users"
-msgstr "Менеджер задач - статусы"
+msgstr "Менеджер задач - пользователи"
 
 #: task_manager/users/views.py:131
 msgid "You are logged out"
 msgstr "Вы вышли из аккаунта"
 
 #: task_manager/users/views.py:136
-#, fuzzy
-#| msgid "Task manager - tasks"
+
 msgid "Task manager - logout"
 msgstr "Менеджер задач - задачи"
 

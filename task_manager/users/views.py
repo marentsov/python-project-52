@@ -27,7 +27,7 @@ class UserLoginView(LoginView):
         user = form.get_user()
         """Security check complete. Log the user in."""
         auth.login(self.request, user)
-        messages.success(self.request, f"{user.username}, {message}")
+        messages.success(self.request, f"{message}")
         return HttpResponseRedirect(self.get_success_url())
 
 

@@ -17,4 +17,4 @@ migrate:
 makemessages:
 		django-admin makemessages --ignore="static" --ignore=".env"  -l ru
 compilemessages:
-		uv run manage.py compilemessages
+		django-admin compilemessages

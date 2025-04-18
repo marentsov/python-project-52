@@ -18,11 +18,11 @@ from django.conf import settings
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -70,11 +70,11 @@ MIDDLEWARE = [
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
 
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
@@ -133,20 +133,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOCALE_PATHS = [os.path.join(settings.BASE_DIR, 'locale')]
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = os.getenv('USE_I18N', True)
+USE_I18N = True
 
-USE_L10N = os.getenv('USE_L10N', True)
+USE_L10N = True
 
-USE_TZ = os.getenv('USE_TZ', True)
+USE_TZ = True
 
-LANGUAGES = (
+
+LANGUAGES = [
     ('en', 'English'),
     ('ru', 'Russian'),
-)
+]
+
+
 
 
 # Static files (CSS, JavaScript, Images)
