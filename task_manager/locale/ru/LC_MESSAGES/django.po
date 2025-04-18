@@ -489,7 +489,7 @@ msgstr "Менеджер задач - пользователи"
 
 #: task_manager/users/views.py:131
 msgid "You are logged out"
-msgstr "Вы вышли из аккаунта"
+msgstr "Вы разлогинены"
 
 #: task_manager/users/views.py:136
 
