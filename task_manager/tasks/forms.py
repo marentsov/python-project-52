@@ -39,7 +39,7 @@ class TaskFilterForm(forms.Form):
 class TaskCreateForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('name', 'description', 'status', 'executor', 'label',)
+        fields = ('name', 'description', 'status', 'executor', 'labels',)
 
     name = forms.CharField(
         widget=forms.TextInput(attrs={
@@ -66,7 +66,7 @@ class TaskCreateForm(forms.ModelForm):
         widget=forms.Select(attrs={
             'class': 'form-control', }))
 
-    label = forms.ModelMultipleChoiceField(
+    labels = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
         required=False,
         label=_('Label'),
@@ -78,7 +78,7 @@ class TaskCreateForm(forms.ModelForm):
 class TaskUpdateForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('name', 'description', 'status', 'executor', 'label',)
+        fields = ('name', 'description', 'status', 'executor', 'labels',)
 
     name = forms.CharField(
         widget=forms.TextInput(attrs={
@@ -105,7 +105,7 @@ class TaskUpdateForm(forms.ModelForm):
         widget=forms.Select(attrs={
             'class': 'form-control', }))
 
-    label = forms.ModelMultipleChoiceField(
+    labels = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
         required=False,
         label=_('Label'),

@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-2">
                     <p>{% trans "Labels" %}:
-                        {% for label in task.label.all %}
+                        {% for label in task.labels.all %}
                         <ul>
                             <li>{{ label.name }}</li>
                         </ul>
