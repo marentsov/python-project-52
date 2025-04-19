@@ -138,7 +138,7 @@ msgstr "Менеджер задач - удалить метку"
 
 #: task_manager/statuses/mixins.py:8
 msgid "The status is in use and cannot be deleted"
-msgstr "Статус используется его нельзя удалить"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/statuses/templates/statuses/create.html:8
 #: task_manager/statuses/templates/statuses/statuses.html:10
