@@ -9,8 +9,8 @@ line-length = 80
 "task_manager/labels/migrations/*.py" = ["E501"]
 "task_manager/statuses/migrations/*.py" = ["E501"]
 "task_manager/tasks/migrations/*.py" = ["E501"]
-"task_manager/labels/forms.py" = ["E113"]
-"task_manager/statuses/forms.py" = ["E113"]
+#"task_manager/labels/forms.py" = ["E113"]
+#"task_manager/statuses/forms.py" = ["E113"]
 "locale" = ["ALL"]
 [lint]
 preview = true
