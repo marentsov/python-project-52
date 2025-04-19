@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 21:28+0300\n"
+"POT-Creation-Date: 2025-04-19 08:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -491,15 +491,20 @@ msgstr "Менеджер задач - обновление пользовате�
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/users/views.py:122
+#: task_manager/users/views.py:76
+
+msgid "Task manager - delete user"
+msgstr "Менеджер задач - удалить пользователя"
+
+#: task_manager/users/views.py:126
 msgid "Task manager - users"
 msgstr "Менеджер задач - пользователи"
 
-#: task_manager/users/views.py:131
+#: task_manager/users/views.py:135
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: task_manager/users/views.py:136
+#: task_manager/users/views.py:140
 msgid "Task manager - logout"
 msgstr "Менеджер задач - задачи"
 

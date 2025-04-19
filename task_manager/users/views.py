@@ -65,15 +65,19 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
         return context
 
 
-class UserDeleteView(PreventUsedUserDeletionMixin, UserPermissionMixin, DeleteView):
+class UserDeleteView(PreventUsedUserDeletionMixin, SuccessMessageMixin, UserPermissionMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users:users')
     template_name = 'users/delete.html'
     success_message = _('User successfully deleted')
 
-    def delete(self, request, *args, **kwargs):
-        messages.success(request, self.success_message)
-        return super().delete(request, *args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = _('Task manager - delete user')
+        return context
+
+
+
 
 
 # class UserUpdateView(UserPermissionMixin, UpdateView):
