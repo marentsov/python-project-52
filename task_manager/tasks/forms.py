@@ -27,7 +27,7 @@ class TaskFilterForm(forms.Form):
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input', }))
 
-    label = forms.ModelMultipleChoiceField(
+    labels = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
         required=False,
         label=_('Label'),
