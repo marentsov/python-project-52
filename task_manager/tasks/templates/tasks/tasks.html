@@ -13,19 +13,19 @@
             <form method="get" class="card p-3 bg-light">
                 {% csrf_token %}
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Status" %}</label>
+                    <label class="mb-1" for="id_status">{% trans "Status" %}</label>
                     {{ filter_form.status }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Executor" %}</label>
+                    <label class="mb-1" for="id_executor">{% trans "Executor" %}</label>
                     {{ filter_form.executor }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Label" %}</label>
+                    <label class="mb-1" for="id_label">{% trans "Label" %}</label>
                     {{ filter_form.label }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Only your own tasks" %}</label>
+                    <label class="mb-1" for="id_my_tasks">{% trans "Only your own tasks" %}</label>
                     {{ filter_form.my_tasks }}
                 </div>
                 <div class="d-grid">
