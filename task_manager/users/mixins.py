@@ -10,7 +10,9 @@ from django.utils.translation import gettext as _
 
 class UserPermissionMixin(LoginRequiredMixin, UserPassesTestMixin):
 
-    permission_denied_message = _("You don't have the rights to change another user.")
+    permission_denied_message = _(
+        "You don't have the rights to change another user."
+    )
     login_message = _('You are not logged in! Please log in.')
     raise_exception = False
     index_url = reverse_lazy('users:users')

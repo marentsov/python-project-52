@@ -49,7 +49,11 @@ class LabelUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return context
 
 
-class LabelDeleteView(PreventUsedLabelsDeletionMixin, SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+class LabelDeleteView(
+    PreventUsedLabelsDeletionMixin,
+    SuccessMessageMixin,
+    LoginRequiredMixin,
+    DeleteView):
 
     model = Label
     success_url = reverse_lazy('labels:labels')

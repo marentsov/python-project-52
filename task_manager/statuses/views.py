@@ -53,7 +53,11 @@ class StatusUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         return context
 
 
-class StatusDeleteView(PreventUsedStatusDeletionMixin, SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+class StatusDeleteView(
+    PreventUsedStatusDeletionMixin,
+    SuccessMessageMixin,
+    LoginRequiredMixin,
+    DeleteView):
 
     model = Status
     success_url = reverse_lazy('statuses:statuses')
