@@ -161,7 +161,7 @@ msgstr "Статусы"
 
 #: task_manager/statuses/templates/statuses/update.html:8
 msgid "Update status info"
-msgstr "Обновление данных статуса"
+msgstr "Изменение статуса"
 
 #: task_manager/statuses/views.py:19
 msgid "Task manager - statuses"
