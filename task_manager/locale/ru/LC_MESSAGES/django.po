@@ -45,7 +45,7 @@ msgstr "Метка используется ее нельзя удалить"
 #: task_manager/labels/templates/labels/create.html:8
 #: task_manager/labels/templates/labels/labels.html:10
 msgid "Create label"
-msgstr "Создать"
+msgstr "Создать метку"
 
 #: task_manager/labels/templates/labels/create.html:16
 #: task_manager/statuses/templates/statuses/create.html:16
