@@ -39,9 +39,9 @@ class TaskFilterForm(forms.Form):
 class TaskCreateForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('title', 'description', 'status', 'executor', 'label',)
+        fields = ('name', 'description', 'status', 'executor', 'label',)
 
-    title = forms.CharField(
+    name = forms.CharField(
         widget=forms.TextInput(attrs={
             "autofocus": True,
             'class': 'form-control',
@@ -78,9 +78,9 @@ class TaskCreateForm(forms.ModelForm):
 class TaskUpdateForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('title', 'description', 'status', 'executor', 'label',)
+        fields = ('name', 'description', 'status', 'executor', 'label',)
 
-    title = forms.CharField(
+    name = forms.CharField(
         widget=forms.TextInput(attrs={
             "autofocus": True,
             'class': 'form-control',

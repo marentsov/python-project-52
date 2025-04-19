@@ -9,8 +9,8 @@
             <form method="post" class="card bg-light p-3">
                 {% csrf_token %}
                 <div class="mb-2">
-                    <label class="mb-1" for="id_title">{% trans "Name" %}</label>
-                    {{ form.title }}
+                    <label class="mb-1" for="id_name">{% trans "Name" %}</label>
+                    {{ form.name }}
                 </div>
                 <div class="mb-2">
                     <label class="mb-1" for="id_description">{% trans "Description of task" %}</label>
