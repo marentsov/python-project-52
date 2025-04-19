@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-19 08:04+0300\n"
+"POT-Creation-Date: 2025-04-19 08:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,9 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: task_manager/labels/templates/labels/labels.html:8
+#: task_manager/tasks/templates/tasks/create.html:28
 #: task_manager/tasks/templates/tasks/task.html:29
+#: task_manager/tasks/templates/tasks/update.html:30
 #: task_manager/templates/base.html:74
 msgid "Labels"
 msgstr "Метки"
@@ -210,9 +212,7 @@ msgid "Only my tasks"
 msgstr "Только свои задачи"
 
 #: task_manager/tasks/forms.py:33 task_manager/tasks/forms.py:72
-#: task_manager/tasks/templates/tasks/create.html:28
 #: task_manager/tasks/templates/tasks/tasks.html:24
-#: task_manager/tasks/templates/tasks/update.html:30
 msgid "Label"
 msgstr "Метка"
 
@@ -492,7 +492,6 @@ msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py:76
-
 msgid "Task manager - delete user"
 msgstr "Менеджер задач - удалить пользователя"
 

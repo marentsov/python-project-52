@@ -10,24 +10,24 @@
             <h1 class="mb-3">{% trans "Update task" %}</h1>
             <form method="post" class="card bg-light p-3">
                 {% csrf_token %}
-                <div class="mb-2">
-                    <label class="mb-1">{% trans "Name" %}</label>
+                 <div class="mb-2">
+                    <label class="mb-1" for="id_name">{% trans "Name" %}</label>
                     {{ form.title }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Description" %}</label>
+                    <label class="mb-1" for="id_description">{% trans "Description" %}</label>
                     {{ form.description }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Status" %}</label>
+                    <label class="mb-1" for="id_status">{% trans "Status" %}</label>
                     {{ form.status }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Executor" %}</label>
+                    <label class="mb-1" for="id_executor">{% trans "Executor" %}</label>
                     {{ form.executor }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1">{% trans "Label" %}</label>
+                    <label class="mb-1" for="id_labels">{% trans "Labels" %}</label>
                     {{ form.label }}
                 </div>
                 <div class="d-grid">
