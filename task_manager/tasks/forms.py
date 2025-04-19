@@ -50,7 +50,7 @@ class TaskCreateForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': _('Name')}))
+            'placeholder': _('Description')}))
 
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),
@@ -89,7 +89,7 @@ class TaskUpdateForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': _('Name')}))
+            'placeholder': _('Description of task')}))
 
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-19 09:08+0300\n"
+"POT-Creation-Date: 2025-04-19 09:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,8 +28,7 @@ msgstr ""
 #: task_manager/statuses/templates/statuses/create.html:12
 #: task_manager/statuses/templates/statuses/statuses.html:16
 #: task_manager/statuses/templates/statuses/update.html:12
-#: task_manager/tasks/forms.py:48 task_manager/tasks/forms.py:53
-#: task_manager/tasks/forms.py:87 task_manager/tasks/forms.py:92
+#: task_manager/tasks/forms.py:48 task_manager/tasks/forms.py:87
 #: task_manager/tasks/templates/tasks/create.html:12
 #: task_manager/tasks/templates/tasks/tasks.html:39
 #: task_manager/tasks/templates/tasks/update.html:14
@@ -100,7 +99,6 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: task_manager/labels/templates/labels/update.html:8
-
 msgid "Update label"
 msgstr "Изменить метку"
 
@@ -221,6 +219,16 @@ msgstr "Только свои задачи"
 msgid "Label"
 msgstr "Метка"
 
+#: task_manager/tasks/forms.py:53
+#: task_manager/tasks/templates/tasks/update.html:18
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/forms.py:92
+#: task_manager/tasks/templates/tasks/create.html:16
+msgid "Description of task"
+msgstr "Описание"
+
 #: task_manager/tasks/mixins.py:12
 msgid "Task can only be deleted by author."
 msgstr "Задача может быть удалена только автором"
@@ -229,11 +237,6 @@ msgstr "Задача может быть удалена только автор�
 #: task_manager/tasks/templates/tasks/tasks.html:11
 msgid "Create task"
 msgstr "Создать задачу"
-
-#: task_manager/tasks/templates/tasks/create.html:16
-#: task_manager/tasks/templates/tasks/update.html:18
-msgid "Description"
-msgstr "Описание"
 
 #: task_manager/tasks/templates/tasks/delete.html:8
 msgid "Delete task"

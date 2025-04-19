@@ -13,7 +13,7 @@
                     {{ form.title }}
                 </div>
                 <div class="mb-2">
-                    <label class="mb-1" for="id_description">{% trans "Description" %}</label>
+                    <label class="mb-1" for="id_description">{% trans "Description of task" %}</label>
                     {{ form.description }}
                 </div>
                 <div class="mb-2">
@@ -31,6 +31,15 @@
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
                 </div>
+                {% if form.errors %}
+                    <div class="alert alert-danger mt-2">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
             </form>
         </div>
     </div>
