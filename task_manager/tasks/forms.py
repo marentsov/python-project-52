@@ -48,13 +48,13 @@ class TaskCreateForm(forms.ModelForm):
             'placeholder': _('Name')}))
 
     description = forms.CharField(
+        required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': _('Description')}))
 
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),
-        required=False,
         label=_('Status'),
         widget=forms.Select(attrs={
             'class': 'form-control', }))
@@ -87,13 +87,13 @@ class TaskUpdateForm(forms.ModelForm):
             'placeholder': _('Name')}))
 
     description = forms.CharField(
+        required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': _('Description of task')}))
 
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),
-        required=False,
         label=_('Status'),
         widget=forms.Select(attrs={
             'class': 'form-control', }))
