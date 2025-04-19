@@ -24,7 +24,7 @@ class TaskListView(LoginRequiredMixin, ListView):
 
         status = self.request.GET.get('status')
         executor = self.request.GET.get('executor')
-        label = self.request.GET.get('label')
+        labels = self.request.GET.get('labels')
         my_tasks = self.request.GET.get('my_tasks')
 
         tasks = Task.objects.all().order_by('-id')  # базовый queryset
@@ -33,8 +33,8 @@ class TaskListView(LoginRequiredMixin, ListView):
             tasks = tasks.filter(status_id=status)
         if executor:  # если выбран исполнитель
             tasks = tasks.filter(executor_id=executor)
-        if label:
-            tasks = tasks.filter(label=label)
+        if labels:
+            tasks = tasks.filter(labels=labels)
         if my_tasks == 'on':  # если выбрана опция "только мои задачи"
             tasks = tasks.filter(creator=self.request.user)
 
