@@ -67,7 +67,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
 
 class UserDeleteView(PreventUsedUserDeletionMixin, UserPermissionMixin, DeleteView):
     model = User
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('users:users')
     template_name = 'users/delete.html'
     success_message = _('User successfully deleted')
 
