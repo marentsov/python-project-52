@@ -38,7 +38,7 @@ class LabelUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Label
     template_name = 'labels/update.html'
     form_class = LabelUpdateForm
-    success_url = reverse_lazy('labels:labels')
+    success_url = '/labels/'
     success_message = _('Label successfully updated')
 
     def get_context_data(self, **kwargs):
