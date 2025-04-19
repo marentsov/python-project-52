@@ -49,7 +49,7 @@ class TaskCreateForm(forms.ModelForm):
 
     description = forms.CharField(
         required=False,
-        widget=forms.TextInput(attrs={
+        widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': _('Description')}))
 
@@ -88,7 +88,7 @@ class TaskUpdateForm(forms.ModelForm):
 
     description = forms.CharField(
         required=False,
-        widget=forms.TextInput(attrs={
+        widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': _('Description of task')}))
 
