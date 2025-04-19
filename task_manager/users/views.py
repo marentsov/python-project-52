@@ -49,7 +49,7 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
     form_class = UserUpdateForm
     success_url = reverse_lazy('users:users')
 
-    # УДАЛЕНО переопределение get_object - теперь используем стандартное получение объекта
+
 
     def form_valid(self, form):
         messages.success(self.request, _('User info was updated'))
