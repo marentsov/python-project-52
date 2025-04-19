@@ -39,7 +39,7 @@ msgstr "Имя"
 
 #: task_manager/labels/mixins.py:8
 msgid "The label is in use and cannot be deleted"
-msgstr "Метка используется ее нельзя удалить"
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/labels/templates/labels/create.html:8
 #: task_manager/labels/templates/labels/labels.html:10
