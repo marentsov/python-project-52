@@ -107,5 +107,13 @@ class TaskUpdateForm(forms.ModelForm):
 
     label = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
-        widget=forms.CheckboxSelectMultiple(
-            attrs={'class': 'checkbox-container'}))
+        required=False,
+        label=_('Label'),
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-select',
+            'size': '5'}))
+
+    # label = forms.ModelMultipleChoiceField(
+    #     queryset=Label.objects.all(),
+    #     widget=forms.CheckboxSelectMultiple(
+    #         attrs={'class': 'checkbox-container'}))
