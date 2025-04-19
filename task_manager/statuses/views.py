@@ -3,6 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+
 from task_manager.statuses.forms import StatusCreateForm, StatusUpdateForm
 from task_manager.statuses.mixins import PreventUsedStatusDeletionMixin
 from task_manager.statuses.models import Status

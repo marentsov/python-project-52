@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+
 from task_manager.labels.forms import LabelCreateForm, LabelUpdateForm
 from task_manager.labels.mixins import PreventUsedLabelsDeletionMixin
 from task_manager.labels.models import Label

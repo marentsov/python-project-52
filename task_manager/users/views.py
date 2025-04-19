@@ -7,8 +7,9 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+
 from task_manager.users.forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
-from task_manager.users.mixins import UserPermissionMixin, PreventUsedUserDeletionMixin
+from task_manager.users.mixins import PreventUsedUserDeletionMixin, UserPermissionMixin
 from task_manager.users.models import User
 
 
@@ -49,8 +50,6 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
     form_class = UserUpdateForm
     success_url = reverse_lazy('users:users')
 
-
-
     def form_valid(self, form):
         messages.success(self.request, _('User info was updated'))
         return super().form_valid(form)
@@ -75,9 +74,6 @@ class UserDeleteView(PreventUsedUserDeletionMixin, SuccessMessageMixin, UserPerm
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - delete user')
         return context
-
-
-
 
 
 # class UserUpdateView(UserPermissionMixin, UpdateView):
@@ -139,7 +135,6 @@ class UserLogoutView(LoginView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - logout')
         return context
-
 
 
 # @login_required
