@@ -5,7 +5,7 @@ from task_manager.users.models import User
 
 
 class Task(models.Model):
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     description = models.TextField(verbose_name='Описание задачи')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
