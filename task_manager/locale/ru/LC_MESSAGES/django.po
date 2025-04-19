@@ -232,7 +232,7 @@ msgstr "Описание"
 
 #: task_manager/tasks/mixins.py:12
 msgid "Task can only be deleted by author."
-msgstr "Задача может быть удалена только автором"
+msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/tasks/templates/tasks/create.html:8
 #: task_manager/tasks/templates/tasks/tasks.html:11
