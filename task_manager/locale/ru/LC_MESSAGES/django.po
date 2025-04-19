@@ -385,7 +385,7 @@ msgstr "Подтверждение пароля"
 
 #: task_manager/users/mixins.py:13
 msgid "You don't have the rights to change another user."
-msgstr "У вас нет прав на изменение другого пользователя"
+msgstr "У вас нет прав на изменение другого пользователя."
 
 #: task_manager/users/mixins.py:14
 msgid "You are not logged in! Please log in."
