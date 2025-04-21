@@ -25,6 +25,7 @@ jobs:
 
     - name: Run tests with coverage
       run: |
+        uv run manage.py test
         uv run coverage xml   # Замените на вашу команду запуска тестов
 
     - name: Upload to qlty.sh
