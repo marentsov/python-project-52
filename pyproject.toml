@@ -28,3 +28,10 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["task_manager"]
+
+[tool.coverage.run]
+source = ["task_manager"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
