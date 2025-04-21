@@ -30,6 +30,7 @@ jobs:
     - name: Run tests with coverage
       env:
         DATABASE_URL: "sqlite:///db.sqlite3"
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
         uv run coverage run --rcfile=.coveragerc manage.py test --keepdb
         uv run coverage xml
