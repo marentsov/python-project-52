@@ -103,10 +103,24 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),  # Использует DATABASE_URL из .env или переменных окружения
+        default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'),  # Правильный приоритет
         conn_max_age=600,
     )
 }
+
+# Дополнительная страховка для CI
+if os.getenv('GITHUB_ACTIONS') == 'true':
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL'),  # Использует DATABASE_URL из .env или переменных окружения
+#         conn_max_age=600,
+#     )
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

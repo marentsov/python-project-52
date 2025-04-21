@@ -28,6 +28,8 @@ jobs:
       run: uv run manage.py makemigrations --settings=task_manager.settings_test
 
     - name: Run tests with coverage
+      env:
+        DATABASE_URL: "sqlite:///db.sqlite3"
       run: |
         uv run coverage run --rcfile=.coveragerc manage.py test --settings=task_manager.settings_test --keepdb
         uv run coverage xml
