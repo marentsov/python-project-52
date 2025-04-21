@@ -25,7 +25,7 @@ jobs:
         uv pip install coverage pytest 
 
     - name: Make migrations
-      run: uv run manage.py makemigrations --settings=task_manager.settings_test
+      run: uv run manage.py makemigrations
 
     - name: Run tests with coverage
       env:
