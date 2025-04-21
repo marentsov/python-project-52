@@ -38,6 +38,6 @@ jobs:
     - name: Upload to qlty.sh
       run: |
         curl -X POST \
-          -H "Authorization: Bearer ${{ secrets.QLTY_TOKEN }}" \
+          -H "Authorization: Bearer ${{ secrets.QLTY_COVERAGE_TOKEN }}" \
           -F "coverage=@coverage.xml" \
           https://qlty.sh/gh/marentsov/python-project-52/coverage
