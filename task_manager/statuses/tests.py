@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
-from django.utils.translation import gettext as _
-
 from django.urls import reverse
 
 from task_manager.statuses.models import Status
@@ -34,12 +32,12 @@ class StatusTest(TestCase):
 
         status = Status.objects.get(name=test_data['name'])
         update_data = {'name': 'status1upd'}
-        response = self.client.post(reverse('statuses:update', args=[status.id]), update_data)
+        response = self.client.post(reverse(
+            'statuses:update', args=[status.id]), update_data)
 
         self.assertRedirects(response, reverse('statuses:statuses'))
 
         self.assertTrue(Status.objects.filter(name='status1upd').exists())
-
 
     def test_delete_statuses(self):
 
@@ -51,12 +49,6 @@ class StatusTest(TestCase):
         self.client.post(reverse('statuses:delete', args=[status.id]))
         with self.assertRaises(ObjectDoesNotExist):
             Status.objects.get(name=test_data["name"])
-
-
-
-
-
-
 
 
 # Create your tests here.

@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
-from django.utils.translation import gettext as _
-
 from django.urls import reverse
 
 from task_manager.labels.models import Label
@@ -34,12 +32,12 @@ class LabelTest(TestCase):
 
         label = Label.objects.get(name=test_data['name'])
         update_data = {'name': 'label1upd'}
-        response = self.client.post(reverse('labels:update', args=[label.id]), update_data)
+        response = self.client.post(reverse(
+            'labels:update', args=[label.id]), update_data)
 
         self.assertRedirects(response, reverse('labels:labels'))
 
         self.assertTrue(Label.objects.filter(name='label1upd').exists())
-
 
     def test_delete_labels(self):
 

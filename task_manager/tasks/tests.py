@@ -30,7 +30,6 @@ class TaskTest(TestCase):
         self.label2 = Label.objects.create(name='label2')
         self.label3 = Label.objects.create(name='label3')
 
-
         self.task1 = Task.objects.create(
             name='task1',
             creator=self.user1,
@@ -55,7 +54,6 @@ class TaskTest(TestCase):
         )
         self.task3.labels.add(self.label2, self.label3)
 
-
     def test_filter_task_my_tasks(self):
         test_data = {
             'my_tasks': 'on'
@@ -64,8 +62,6 @@ class TaskTest(TestCase):
         self.assertContains(response, self.task1.name)
         self.assertContains(response, self.task3.name)
         self.assertNotContains(response, self.task2.name)
-
-
 
     def test_filter_task_labels(self):
         test_data = {
@@ -76,7 +72,6 @@ class TaskTest(TestCase):
         self.assertNotContains(response, self.task2.name)
         self.assertNotContains(response, self.task3.name)
 
-
     def test_filter_task_statuses(self):
         test_data = {
             'status': self.status1.pk
@@ -86,7 +81,6 @@ class TaskTest(TestCase):
         self.assertNotContains(response, self.task2.name)
         self.assertNotContains(response, self.task3.name)
 
-
     def test_filter_task_executor(self):
         test_data = {
             'executor': self.user2.pk
@@ -95,7 +89,6 @@ class TaskTest(TestCase):
         self.assertContains(response, self.task2.name)
         self.assertContains(response, self.task3.name)
         self.assertNotContains(response, self.task1.name)
-
 
     def test_list_of_tasks(self):
 
@@ -107,7 +100,6 @@ class TaskTest(TestCase):
 
         title = _('Task manager - tasks')
         self.assertEqual(response.context['title'], title)
-
 
     def test_task_update(self):
 
@@ -127,10 +119,10 @@ class TaskTest(TestCase):
         self.assertEqual(updated_task.name, test_data['name'])
         self.assertEqual(updated_task.description, test_data['description'])
 
-
     def test_task_delete(self):
 
-        response = self.client.post(reverse('tasks:delete', args=[self.task3.pk]))
+        response = self.client.post(
+            reverse('tasks:delete', args=[self.task3.pk]))
 
         self.assertRedirects(response, reverse('tasks:tasks'))
 
@@ -139,11 +131,6 @@ class TaskTest(TestCase):
         self.assertContains(response, self.task2.name)
         self.assertNotContains(response, self.task3.name)
         self.assertContains(response, self.task1.name)
-
-
-
-
-
 
 
 # Create your tests here.

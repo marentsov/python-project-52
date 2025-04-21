@@ -23,7 +23,6 @@ class UserTest(TestCase):
         self.assertEqual(user.first_name, user_data['first_name'])
         self.assertEqual(user.last_name, user_data['last_name'])
 
-
     def test_update_user(self):
         user_data = {
             'username': 'testuser',
@@ -53,13 +52,11 @@ class UserTest(TestCase):
             reverse('users:update', args=[user.id]), update_user_data
         )
 
-        user.refresh_from_db() # обновляем объект пользователя полученный из бд
+        user.refresh_from_db()  # обновляем объект пользователя полученный из бд
 
         self.assertRedirects(response, reverse('users:users'))
         self.assertEqual(user.first_name, update_user_data['first_name'])
         self.assertEqual(user.last_name, update_user_data['last_name'])
-
-
 
     def test_read_user(self):
 
@@ -77,7 +74,6 @@ class UserTest(TestCase):
         user = User.objects.get(username=user_data['username'])
         self.assertEqual(user.first_name, user_data['first_name'])
         self.assertEqual(user.last_name, user_data['last_name'])
-
 
     def test_delete_user(self):
 
@@ -98,7 +94,6 @@ class UserTest(TestCase):
         user = User.objects.get(username=user_data['username'])
         response = self.client.post(reverse('users:delete', args=[user.id]))
         self.assertRedirects(response, reverse('users:users'))
-
 
     def test_permissions_user(self):
 
@@ -147,11 +142,13 @@ class UserTest(TestCase):
         # третье для предупреждения
         self.assertIn('Пользователь успешно зарегистрирован', str(messages[0]))
         self.assertIn('Пользователь успешно зарегистрирован', str(messages[0]))
-        self.assertIn('У вас нет прав для изменения другого пользователя.', str(messages[2]))
+        self.assertIn(
+            'У вас нет прав для изменения другого пользователя.',
+            str(messages[2])
+        )
 
         self.assertEqual(user.first_name, 'user2')
         self.assertEqual(user.last_name, 'userov2')
-
 
     def test_user_logout(self):
         user_data = {
