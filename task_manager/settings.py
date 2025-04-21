@@ -102,18 +102,22 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'),  # Правильный приоритет
-        conn_max_age=600,
-    )
+    "default": dj_database_url.config(default=os.getenv("DATABASE", "db.sqlite3"))
 }
 
-# Дополнительная страховка для CI
-if os.getenv('GITHUB_ACTIONS') == 'true':
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'),  # Правильный приоритет
+#         conn_max_age=600,
+#     )
+# }
+#
+# # Дополнительная страховка для CI
+# if os.getenv('GITHUB_ACTIONS') == 'true':
+#     DATABASES['default'] = {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 
 # DATABASES = {
 #     'default': dj_database_url.config(

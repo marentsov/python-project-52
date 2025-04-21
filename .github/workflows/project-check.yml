@@ -22,7 +22,7 @@ jobs:
 
     - name: Install dependencies with UV
       run: |
-        uv pip install coverage pytest 
+        uv pip install
 
     - name: Make migrations
       run: uv run manage.py makemigrations
