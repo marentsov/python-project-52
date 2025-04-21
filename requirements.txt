@@ -9,7 +9,6 @@ django-bootstrap5==25.1
 django-debug-toolbar==5.1.0
 gunicorn==23.0.0
 h11==0.14.0
--e file:///Users/macbook/PycharmProjects/python-project-52
 idna==3.10
 iniconfig==2.1.0
 packaging==24.2
