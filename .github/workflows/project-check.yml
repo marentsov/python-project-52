@@ -18,10 +18,11 @@ jobs:
     - name: Install UV
       run: |
         pip install uv
+        uv venv
 
     - name: Install dependencies with UV
       run: |
-        uv pip install coverage pytest  # Явно указываем нужные пакеты
+        uv pip install coverage pytest  
 
     - name: Run tests with coverage
       run: |
