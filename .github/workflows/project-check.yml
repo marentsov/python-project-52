@@ -35,7 +35,7 @@ jobs:
         uv run coverage run --rcfile=.coveragerc manage.py test --keepdb
         uv run coverage lcov
 
-    - name: Upload to qlty.sh
+#    - name: Upload to qlty.sh
     - uses: qltysh/qlty-action/coverage@v1
       with:
         token: {{secrets.QLTY_COVERAGE_TOKEN}}
