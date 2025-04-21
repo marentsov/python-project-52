@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from task_manager.tasks.models import Task
 from task_manager.users.forms import (
     UserLoginForm,
     UserRegistrationForm,

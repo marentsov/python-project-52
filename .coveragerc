@@ -1,0 +1,15 @@
+[run]
+omit =
+    */migrations/*
+    */tests/*
+    */settings/*
+    venv/*
+    */admin.py
+    */apps.py
+    */__init__.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __str__
+    raise NotImplementedError
