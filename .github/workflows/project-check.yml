@@ -16,13 +16,13 @@ jobs:
           python-version: '3.12'
 
       - name: Install UV
-        run: pip install uv
-
-      - name: Create virtual environment
-        run: uv venv
+        run: |
+          pip install uv
+          uv venv
 
       - name: Install dependencies
-        run: uv pip install -r requirements.txt
+        run: |
+          uv pip install -r requirements.txt
 
       - name: Make migrations
         run: uv run manage.py makemigrations
@@ -33,10 +33,10 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           uv run coverage run --rcfile=.coveragerc manage.py test --keepdb
-          uv run coverage lcov -o coverage.lcov  # Явно указываем имя файла
+          uv run coverage lcov -o coverage.lcov  
 
       - name: Upload to qlty.sh
         uses: qltysh/qlty-action/coverage@v1
         with:
-          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}  # Исправлен синтаксис
-          files: coverage.lcov  # Имя файла должно совпадать сгенерированным
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage.lcov
