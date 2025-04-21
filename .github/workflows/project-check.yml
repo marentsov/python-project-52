@@ -33,11 +33,10 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
         uv run coverage run --rcfile=.coveragerc manage.py test --keepdb
-        uv run coverage xml
+        uv run coverage lcov
 
     - name: Upload to qlty.sh
-      run: |
-        curl -X POST \
-          -H "Authorization: Bearer ${{ secrets.QLTY_COVERAGE_TOKEN }}" \
-          -F "coverage=@coverage.xml" \
-          https://qlty.sh/gh/marentsov/python-project-52/coverage
+    - uses: qltysh/qlty-action/coverage@v1
+      with:
+        token: {{secrets.QLTY_COVERAGE_TOKEN}}
+        files: reports/lcov.info
