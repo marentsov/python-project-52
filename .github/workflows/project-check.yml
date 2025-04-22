@@ -36,7 +36,8 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           uv run coverage run --rcfile=.coveragerc manage.py test --keepdb
-          uv run coverage lcov -o coverage.lcov  
+          uv run coverage lcov -o coverage.lcov
+          uv run coverage xml -o coverage.xml
 
       - name: Upload to qlty.sh
         uses: qltysh/qlty-action/coverage@v1
