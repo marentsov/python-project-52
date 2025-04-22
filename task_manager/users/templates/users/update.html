@@ -47,6 +47,38 @@
                     <button type="submit" class="btn btn-primary">{% trans "Update info" %}</button>
                 </div>
             </form>
+            <div class="user-tasks" style="margin-top: 30px;">
+        <h3>{% trans "User's tasks" %}:</h3>
+
+        {% if user_tasks %}
+            <ul>
+                {% for task in user_tasks %}
+                    <li>
+                        <a href="{% url "tasks:detail" task.id %}">{{ task.name }}</a>
+                        ({% trans "Status" %}: {{ task.status }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{% trans "No tasks found" %}.</p>
+        {% endif %}
+    </div>
+            <div class="user-tasks" style="margin-top: 30px;">
+        <h3>{% trans "Tasks where user is executor" %}:</h3>
+
+        {% if user_as_executor_tasks %}
+            <ul>
+                {% for task in user_as_executor_tasks %}
+                    <li>
+                        <a href="{% url "tasks:detail" task.id %}">{{ task.name }}</a>
+                        ({% trans "Status" %}: {{ task.status }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{% trans "No tasks found" %}.</p>
+        {% endif %}
+    </div>
         </div>
     </div>
 </div>

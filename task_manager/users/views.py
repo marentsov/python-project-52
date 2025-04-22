@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from task_manager.tasks.models import Task
 from task_manager.users.forms import (
     UserLoginForm,
     UserRegistrationForm,
@@ -66,8 +67,11 @@ class UserUpdateView(UserPermissionMixin, UpdateView):
         return super().form_invalid(form)
 
     def get_context_data(self, **kwargs):
+        user = self.object
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - update user info')
+        context['user_tasks'] = Task.objects.filter(creator=user)
+        context['user_as_executor_tasks'] = Task.objects.filter(executor=user)
         return context
 
 
