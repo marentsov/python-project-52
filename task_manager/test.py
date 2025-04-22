@@ -7,6 +7,7 @@ from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 
+
 class TitlesTestNotAuthorized(TestCase):
 
     def test_user_login_title(self):
@@ -20,6 +21,7 @@ class TitlesTestNotAuthorized(TestCase):
         response = self.client.get(reverse('users:create'))
         title = _('Task manager - registration')
         self.assertEqual(response.context['title'], title)
+
 
 class TitlesTest(TestCase):
 
@@ -68,13 +70,11 @@ class TitlesTest(TestCase):
         )
         self.task3.labels.add(self.label2, self.label3)
 
-
     def test_user_update_title(self):
 
         response = self.client.get(reverse('users:update', args=[1]))
         title = _('Task manager - update user info')
         self.assertEqual(response.context['title'], title)
-
 
     def test_user_delete_title(self):
 
@@ -88,13 +88,11 @@ class TitlesTest(TestCase):
         title = _('Task manager - create task')
         self.assertEqual(response.context['title'], title)
 
-
     def test_task_update_title(self):
 
         response = self.client.get(reverse('tasks:update', args=[1]))
         title = _('Task manager - update task')
         self.assertEqual(response.context['title'], title)
-
 
     def test_task_delete_title(self):
 
@@ -102,22 +100,17 @@ class TitlesTest(TestCase):
         title = _('Task manager - delete task')
         self.assertEqual(response.context['title'], title)
 
-
-
     def test_status_create_title(self):
 
         response = self.client.get(reverse('statuses:create'))
         title = _('Task manager - create status')
         self.assertEqual(response.context['title'], title)
 
-
-
     def test_status_update_title(self):
 
         response = self.client.get(reverse('statuses:update', args=[1]))
         title = _('Task manager - update status info')
         self.assertEqual(response.context['title'], title)
-
 
     def test_status_delete_title(self):
 
@@ -131,14 +124,11 @@ class TitlesTest(TestCase):
         title = _('Task manager - create label')
         self.assertEqual(response.context['title'], title)
 
-
-
     def test_label_update_title(self):
 
         response = self.client.get(reverse('labels:update', args=[1]))
         title = _('Task manager - update label info')
         self.assertEqual(response.context['title'], title)
-
 
     def test_label_delete_title(self):
 
