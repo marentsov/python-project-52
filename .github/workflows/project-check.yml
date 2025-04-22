@@ -30,7 +30,7 @@ jobs:
       - name: Make lint
         run: make lint
 
-      - name: Run tests with coverage
+      - name: Run tests with coverage QLTY
         env:
           DATABASE_URL: "sqlite:///db.sqlite3"
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -43,3 +43,13 @@ jobs:
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: coverage.lcov
+
+      - name: SonarQube
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
