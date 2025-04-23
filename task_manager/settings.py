@@ -45,7 +45,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -69,7 +69,6 @@ MIDDLEWARE = [
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -106,26 +105,6 @@ DATABASES = {
         default=os.getenv("DATABASE", "sqlite:///db.sqlite3")
     )
 }
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'),  # Правильный приоритет
-#         conn_max_age=600,
-#     )
-# }
-#
-# # Дополнительная страховка для CI
-# if os.getenv('GITHUB_ACTIONS') == 'true':
-#     DATABASES['default'] = {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL'),  # Использует DATABASE_URL из .env или переменных окружения
-#         conn_max_age=600,
-#     )
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -151,15 +130,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOCALE_PATHS = [os.path.join(settings.BASE_DIR, 'locale')]
 
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.getenv('TIME_ZONE')
 
-USE_I18N = True
+USE_I18N = os.getenv('USE_I18N')
 
-USE_L10N = True
+USE_L10N = os.getenv('USE_L10N')
 
-USE_TZ = True
+USE_TZ = os.getenv('USE_TZ')
 
 
 LANGUAGES = [
@@ -276,9 +255,4 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
  }
 
-# ROLLBAR = {
-#     'access_token': os.getenv('ACCESS_TOKEN'),
-#     'environment': 'development' if DEBUG else 'production',
-#     'code_version': '1.0',
-#     'root': BASE_DIR,
-# }
+

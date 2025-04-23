@@ -43,5 +43,5 @@ class Task(models.Model):
         verbose_name_plural = 'Задачи'
 
     def __str__(self):
-        return f"Задача {self.title} || Исполнитель {self.creator.username}"
+        return f"Задача {self.name} || Исполнитель {self.creator.username}"
 # Create your models here.
