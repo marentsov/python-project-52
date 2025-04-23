@@ -464,11 +464,11 @@ msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/users/templates/users/login.html:8
 msgid "Login"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/users/templates/users/login.html:23
 msgid "Enter"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/users/templates/users/update.html:8
 msgid "Update user info"
