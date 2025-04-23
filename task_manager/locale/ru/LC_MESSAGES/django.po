@@ -468,7 +468,7 @@ msgstr "Вход"
 
 #: task_manager/users/templates/users/login.html:23
 msgid "Enter"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/users/templates/users/update.html:8
 msgid "Update user info"
