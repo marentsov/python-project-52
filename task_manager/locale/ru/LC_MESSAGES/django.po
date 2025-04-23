@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 10:14+0300\n"
+"POT-Creation-Date: 2025-04-23 13:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,7 +322,8 @@ msgid "Sign up"
 msgstr "Регистрация"
 
 #: task_manager/templates/base.html:64
-msgid "Log in"
+#: task_manager/users/templates/users/login.html:8
+msgid "Login"
 msgstr "Вход"
 
 #: task_manager/templates/base.html:80
@@ -462,10 +463,6 @@ msgstr "Удаление пользователя"
 msgid "Are you sure you want delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: task_manager/users/templates/users/login.html:8
-msgid "Login"
-msgstr "Вход"
-
 #: task_manager/users/templates/users/login.html:23
 msgid "Enter"
 msgstr "Войти"
@@ -530,6 +527,9 @@ msgstr "Менеджер задач - задачи"
 #: task_manager/views.py:10
 msgid "Task manager - main"
 msgstr "Менеджер задач - главная"
+
+#~ msgid "Log in"
+#~ msgstr "Тест"
 
 #~ msgid "You have successfully logged out of your account"
 #~ msgstr "Вы успешно вышли из аккаунта"

@@ -14,7 +14,6 @@ import os
 from pathlib import Path
 
 import dj_database_url
-from django.conf import settings
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
