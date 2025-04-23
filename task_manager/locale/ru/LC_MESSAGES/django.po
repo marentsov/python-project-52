@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-22 13:02+0300\n"
+"POT-Creation-Date: 2025-04-23 10:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -330,7 +330,7 @@ msgid "Profile"
 msgstr "Профиль"
 
 #: task_manager/templates/base.html:83
-msgid "Log out"
+msgid "log out"
 msgstr "Выход"
 
 #: task_manager/templates/index.html:11
@@ -464,7 +464,7 @@ msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/users/templates/users/login.html:8
 msgid "Login"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/users/templates/users/login.html:23
 msgid "Enter"
@@ -479,7 +479,6 @@ msgid "Update info"
 msgstr "Изменить"
 
 #: task_manager/users/templates/users/update.html:51
-
 msgid "User's tasks"
 msgstr "Задачи пользователя"
 
