@@ -130,15 +130,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOCALE_PATHS = [os.path.join(settings.BASE_DIR, 'locale')]
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'ru-RU')
 
-TIME_ZONE = os.getenv('TIME_ZONE')
+TIME_ZONE = os.getenv('TIME_ZONE', 'UTC')
 
-USE_I18N = os.getenv('USE_I18N')
+USE_I18N = os.getenv('USE_I18N', True)
 
-USE_L10N = os.getenv('USE_L10N')
+USE_L10N = os.getenv('USE_L10N', True)
 
-USE_TZ = os.getenv('USE_TZ')
+USE_TZ = os.getenv('USE_TZ', True)
 
 
 LANGUAGES = [
