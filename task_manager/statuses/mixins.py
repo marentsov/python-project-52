@@ -19,12 +19,3 @@ class PreventUsedStatusDeletionMixin:
         return super().post(request, *args, **kwargs)
 
 
-# class StatusPermissionMixin(PermissionRequiredMixin):
-#     permission_denied_message = _(
-#     'The status is in use and cannot be deleted'
-#     )
-#     raise_exception = False
-#
-#     def handle_no_permission(self):
-#         messages.error(self.request, self.permission_denied_message)
-#         return redirect('statuses:statuses')

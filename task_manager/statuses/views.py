@@ -34,9 +34,6 @@ class StatusCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
         context['status'] = True
         return context
 
-    # def form_valid(self, form):
-    #     return super().form_valid(form)
-
 
 class StatusUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Status
@@ -44,12 +41,10 @@ class StatusUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     form_class = StatusUpdateForm
     success_url = reverse_lazy('statuses:statuses')
     success_message = _('Status successfully updated')
-    # queryset = Status.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - update status info')
-        # context['status'] = True
         return context
 
 

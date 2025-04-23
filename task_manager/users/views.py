@@ -92,42 +92,8 @@ class UserDeleteView(
         return context
 
 
-# class UserUpdateView(UserPermissionMixin, UpdateView):
-#     model = User
-#
-#     template_name = 'users/update.html'
-#     form_class = UserUpdateForm
-#     success_url = reverse_lazy('users:users')
-#
-#
-#     def get_object(self, queryset=None):
-#         return self.request.user
-#
-#     def form_valid(self, form):
-#         message = _('User info was updated')
-#         messages.success(self.request, message)
-#         return super().form_valid(form)
-#
-#     def form_invalid(self, form):
-#         message = _('User info update error.')
-#         messages.error(self.request, message)
-#         return super().form_invalid(form)
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['title'] = _('Task manager - update user info')
-#         return context
-#
-#
-# class UserDeleteView(UserPermissionMixin, SuccessMessageMixin, DeleteView):
-#
-#     model = User
-#     success_url = reverse_lazy('index')
-#     template_name = 'users/delete.html'
-#     success_message = _('User successfully deleted')
-#
-#
 class UserListView(ListView):
+
     template_name = 'users/users.html'
     model = User
     queryset = User.objects.all().order_by('-id')
@@ -151,12 +117,3 @@ class UserLogoutView(LoginView):
         context = super().get_context_data(**kwargs)
         context['title'] = _('Task manager - logout')
         return context
-
-
-# @login_required
-# def logout(request):
-#     message = _('You have successfully logged out of your account')
-#     messages.success(request, f"{request.user.username}, {message}")
-#     auth.logout(request)
-#     return redirect(reverse('index'))
-# # Create your views here.

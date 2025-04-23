@@ -9,6 +9,7 @@ from django.utils.translation import gettext as _
 
 
 class UserTaskPermissionMixin(LoginRequiredMixin, UserPassesTestMixin):
+    # миксин который запрещает удаление задачи не ее автором
     permission_denied_message = _("Task can only be deleted by author.")
     raise_exception = False
     index_url = reverse_lazy('tasks:tasks')
