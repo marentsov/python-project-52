@@ -103,7 +103,6 @@ class UserUpdateForm(UserChangeForm):
             'placeholder': _('Enter your password')})
     )
     password2 = forms.CharField(
-        # required=Fal
         required=False,
         widget=forms.PasswordInput(attrs={
             "autocomplete": "current-password",

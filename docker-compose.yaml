@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    env_file: .env.docker
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - app-network
+    healthcheck:  # Добавьте этот блок
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    command: >
+      sh -c "python manage.py makemigrations &&
+                   python manage.py migrate &&
+                   gunicorn -w 5 -b 0.0.0.0:8082 task_manager.wsgi"
+#      sh -c "python manage.py migrate &&
+#             python manage.py collectstatic --noinput &&
+#             gunicorn --bind 0.0.0.0:8000 task_manager.wsgi"
+    env_file: .env.docker
+    environment:
+      - DOCKER_ENV=yes
+    volumes:
+      - .:/app
+    ports:
+      - "8082:8082"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

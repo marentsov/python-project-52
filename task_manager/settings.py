@@ -36,7 +36,6 @@ ALLOWED_HOSTS = [
     'webserver',
     'localhost',
     '127.0.0.1',
-    '0.0.0.0',
     'python-project-52-hiri.onrender.com',
 ]
 
@@ -98,12 +97,27 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# Настройки позволяющие использовать sqlite при локальной разработке
+# и полноценную postgresql при продакшене
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE", "sqlite:///db.sqlite3")
-    )
-}
+if os.getenv('DOCKER_ENV') == 'yes':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('POSTGRES_DB'),
+            'USER': os.getenv('POSTGRES_USER'),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+            'HOST': os.getenv('POSTGRES_HOST'),
+            'PORT': os.getenv('POSTGRES_PORT'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE', 'sqlite:///db.sqlite3'),
+            conn_max_age=600
+        )
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
