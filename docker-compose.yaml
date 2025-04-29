@@ -8,7 +8,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       - app-network
-    healthcheck:  # Добавьте этот блок
+    healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 5s
       timeout: 5s
@@ -16,13 +16,6 @@ services:
 
   app:
     build: .
-    command: >
-      sh -c "python manage.py makemigrations &&
-                   python manage.py migrate &&
-                   gunicorn -w 5 -b 0.0.0.0:8082 task_manager.wsgi"
-#      sh -c "python manage.py migrate &&
-#             python manage.py collectstatic --noinput &&
-#             gunicorn --bind 0.0.0.0:8000 task_manager.wsgi"
     env_file: .env.docker
     environment:
       - DOCKER_ENV=yes
@@ -35,6 +28,22 @@ services:
         condition: service_healthy
     networks:
       - app-network
+
+    # ☝️ Use an array here to avoid any quoting/folding issues
+    command:
+      - sh
+      - -c
+      - |
+        python manage.py makemigrations && \
+        python manage.py migrate      && \
+        exec gunicorn                \
+          --capture-output            \
+          --error-logfile -           \
+          --access-logfile -          \
+          --log-level info            \
+          -w 5                         \
+          -b 0.0.0.0:8082              \
+          task_manager.wsgi:application
 
 volumes:
   postgres_data:

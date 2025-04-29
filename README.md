@@ -31,24 +31,58 @@
 | [Whitenoise](http://whitenoise.evans.io/en/latest/) | "A library for serving static files in Python applications."                                       |
 | [Rollbar](https://rollbar.com/)                   | "A tool for error monitoring and real-time issue tracking."                                        |
 | [ruff](https://docs.astral.sh/ruff/)              | "An extremely fast Python linter and code formatter, written in Rust"                              |
-| [Flake8](https://flake8.pycqa.org/en/latest/)     | "A tool for checking Python code style and quality."                                               |
 | [Coverage.py](https://coverage.readthedocs.io/en/7.6.12/) | "A tool for measuring code coverage of Python programs."                                           |
 
 ****
+### Установка c docker: 
+#### Клонируем репозиторий:
+```
+git clone git@github.com:marentsov/python-project-52.git && cd python-project-52
+```
+#### Переходим в файл .env-example и конфигурируем его:
+```
+# Сконфигурируйте проект, подставьте желаемые значения после "="
+# Если вы хотите взаимодействовать с проектом через docker:
+...
+```
+#### Запускаем проект через docker compose:
+```
+docker compose up --build
+```
+#### Проект становится доступен по адресу http://localhost:8082
 
-### Установка: 
+После запуска приложения, зарегистрируйтесь, создавайте метки и статусы, используйте их при создании задач, назначайте исполнителей, редактируйте пользовательские данные, наслаждайтесь!
+****
+### Установка без docker:
 
+#### Для использования проекта без docker вам понадобится:
+- Python 3.12
+- uv (быстрый пакетный менеджер)
+#### Клонируем репозиторий:
+```
+git clone git@github.com:marentsov/python-project-52.git && cd python-project-52
+```
+#### Переходим в файл .env-example и конфигурируем его:
+
+```
+# Если вы хотите взаимодействовать с проектом без использования docker:
+...
+```
+#### Устанавливаем проект:
 ```
 make setup
 ```
-### Запуск dev-сервера:
+#### Запуск dev-сервера:
 ```
 make dev
 ```
-### Запуск продакшн сервера 
+#### Проект будет доступен по адресу http://127.0.0.1:8000
+****
+#### Запуск продакшн сервера 
 ```
 make render
 ```
+#### Проект будет доступен по адресу http://127.0.0.1:8000
 
 ****
 
